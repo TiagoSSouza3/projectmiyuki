@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://nuhx5ertrji"]
+[gd_scene load_steps=7 format=3 uid="uid://nuhx5ertrji"]
 
-[ext_resource type="Script" uid="uid://bgs74pj8mtem8" path="res://script/interact/box.gd" id="1_uymod"]
+[ext_resource type="Script" path="res://script/interact/box.gd" id="1_uymod"]
 [ext_resource type="Texture2D" uid="uid://2rpesr7nrrbn" path="res://sprites/hold/crate.png" id="2_cusfa"]
-[ext_resource type="Script" uid="uid://cmu0yfdxpx0sl" path="res://script/interact/area_2d.gd" id="3_8hx78"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0e3c1"]
 size = Vector2(14, 14)
@@ -31,44 +30,38 @@ position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_0e3c1")
 
 [node name="Left" type="Area2D" parent="."]
-script = ExtResource("3_8hx78")
-direction = "left"
+collision_layer = 0
 
 [node name="BoxCollision" type="CollisionShape2D" parent="Left"]
 position = Vector2(-11, 4)
 shape = SubResource("RectangleShape2D_7cfpg")
 
 [node name="Right" type="Area2D" parent="."]
-script = ExtResource("3_8hx78")
-direction = "right"
+collision_layer = 0
 
 [node name="BoxCollision" type="CollisionShape2D" parent="Right"]
 position = Vector2(11, 4)
 shape = SubResource("RectangleShape2D_8hx78")
 
 [node name="Up" type="Area2D" parent="."]
-script = ExtResource("3_8hx78")
-direction = "up"
+collision_layer = 0
 
 [node name="BoxCollision" type="CollisionShape2D" parent="Up"]
 position = Vector2(0, -7)
 shape = SubResource("RectangleShape2D_16a8o")
 
 [node name="Down" type="Area2D" parent="."]
-script = ExtResource("3_8hx78")
-direction = "down"
+collision_layer = 0
 
 [node name="BoxCollision" type="CollisionShape2D" parent="Down"]
 position = Vector2(0, 15)
 shape = SubResource("RectangleShape2D_16a8o")
 
-[connection signal="area_shape_entered" from="Left" to="." method="left_area_shape_entered"]
-[connection signal="area_shape_exited" from="Left" to="." method="area_shape_exited"]
-[connection signal="area_entered" from="Right" to="Right" method="_on_area_entered"]
-[connection signal="area_exited" from="Right" to="Right" method="_on_area_exited"]
-[connection signal="area_shape_entered" from="Right" to="." method="right_area_shape_entered"]
-[connection signal="area_shape_exited" from="Right" to="." method="area_shape_exited"]
-[connection signal="area_shape_entered" from="Up" to="." method="up_area_shape_entered"]
-[connection signal="area_shape_exited" from="Up" to="." method="area_shape_exited"]
-[connection signal="area_shape_entered" from="Down" to="." method="down_area_shape_entered"]
-[connection signal="area_shape_exited" from="Down" to="." method="area_shape_exited"]
+[connection signal="area_entered" from="Left" to="." method="left_area_entered"]
+[connection signal="area_exited" from="Left" to="." method="area_exited"]
+[connection signal="area_entered" from="Right" to="." method="right_area_entered"]
+[connection signal="area_exited" from="Right" to="." method="area_exited"]
+[connection signal="area_entered" from="Up" to="." method="up_area_entered"]
+[connection signal="area_exited" from="Up" to="." method="area_exited"]
+[connection signal="area_entered" from="Down" to="." method="down_area_entered"]
+[connection signal="area_exited" from="Down" to="." method="area_exited"]

@@ -3,12 +3,10 @@ class_name Character
 
 const TILE_SIZE = 32
 
-@export var attack_collision = CollisionShape2D
 @export var move_speed = 100
 
 @onready var animation: AnimationPlayer = $animation
 @onready var sprite: Sprite2D = $sprite
-@onready var attackArea: Area2D = $AttackArea
 @onready var remote_transform: RemoteTransform2D = $remote_transform
 @onready var timer: Timer = $Timer
 @onready var collision: CollisionShape2D = $collision
@@ -79,7 +77,6 @@ func get_input():
 	else:
 		move_dir = Vector2.ZERO
 
-
 func is_collision_in_direction(offset: Vector2) -> bool:
 	var space_state = get_world_2d().direct_space_state
 
@@ -88,15 +85,15 @@ func is_collision_in_direction(offset: Vector2) -> bool:
 	transform.origin += offset
 
 	var query = PhysicsShapeQueryParameters2D.new()
+	query.set_collide_with_areas(true)
 	query.shape = shape
 	query.transform = transform
-	query.collision_mask = collision_layer
+	query.collision_mask = 0x000d
 
 	var result = space_state.intersect_shape(query)
 	return result.size() > 0
-	
-	
-	
+
+
 func animate():
 	if moving:
 		last_dir = move_dir
@@ -133,9 +130,7 @@ func kill() -> void:
 
 func _on_animation_finished(anim_name) -> void:
 	if anim_name == "dead":
-		var reaload: bool = get_tree().reaload_current_scene()
-
-
+		var _reaload: bool = get_tree().reaload_current_scene()
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.has_method("interact"):
@@ -144,7 +139,6 @@ func _on_area_entered(area: Area2D) -> void:
 func _on_area_exited(area: Area2D) -> void:
 	if area == nearby_interactable:
 		nearby_interactable = null
-		
 		
 func take_damage(amount):
 	health -= amount

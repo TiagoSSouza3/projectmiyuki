@@ -1,9 +1,9 @@
 [gd_scene load_steps=18 format=3 uid="uid://dn0eyj2v6sa4x"]
 
-[ext_resource type="Script" uid="uid://c7aasiwf0mt8" path="res://script/player/character.gd" id="1_3x35j"]
+[ext_resource type="Script" path="res://script/player/character.gd" id="1_3x35j"]
 [ext_resource type="Texture2D" uid="uid://drc13fkawykk" path="res://sprites/character/Skeleton.png" id="2_t17xi"]
 [ext_resource type="Texture2D" uid="uid://cvlxusskytnec" path="res://sprites/resources/light.png" id="3_d7vt2"]
-[ext_resource type="Script" uid="uid://de5wgcsdbomg5" path="res://script/player/player_stats.gd" id="4_6k5wm"]
+[ext_resource type="Script" path="res://script/player/player_stats.gd" id="4_6k5wm"]
 
 [sub_resource type="Animation" id="Animation_mbevu"]
 length = 0.001
@@ -135,13 +135,13 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mbevu"]
 _data = {
-&"RESET": SubResource("Animation_mbevu"),
-&"costas": SubResource("Animation_p3t0x"),
-&"direita": SubResource("Animation_beyxi"),
-&"esquerda": SubResource("Animation_x6pvx"),
-&"frente": SubResource("Animation_wdeb7"),
-&"hurt": SubResource("Animation_adcn7"),
-&"idle": SubResource("Animation_t17xi")
+"RESET": SubResource("Animation_mbevu"),
+"costas": SubResource("Animation_p3t0x"),
+"direita": SubResource("Animation_beyxi"),
+"esquerda": SubResource("Animation_x6pvx"),
+"frente": SubResource("Animation_wdeb7"),
+"hurt": SubResource("Animation_adcn7"),
+"idle": SubResource("Animation_t17xi")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k8rrn"]
@@ -205,18 +205,17 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_p3t0x"]
 _data = {
-&"RESET": SubResource("Animation_7v2w7"),
-&"light_animation": SubResource("Animation_6k5wm")
+"RESET": SubResource("Animation_7v2w7"),
+"light_animation": SubResource("Animation_6k5wm")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6k5wm"]
-size = Vector2(32, 32)
+size = Vector2(28, 28)
 
-[node name="character" type="CharacterBody2D" node_paths=PackedStringArray("attack_collision") groups=["character"]]
+[node name="character" type="CharacterBody2D" groups=["character"]]
 position = Vector2(500, 500)
-collision_mask = 4
+collision_mask = 15
 script = ExtResource("1_3x35j")
-attack_collision = NodePath("AttackArea/attack_collision")
 move_speed = 200
 
 [node name="sprite" type="Sprite2D" parent="."]
@@ -229,7 +228,7 @@ vframes = 12
 
 [node name="animation" type="AnimationPlayer" parent="."]
 libraries = {
-&"": SubResource("AnimationLibrary_mbevu")
+"": SubResource("AnimationLibrary_mbevu")
 }
 
 [node name="collision" type="CollisionShape2D" parent="."]
@@ -244,16 +243,11 @@ texture_scale = 0.3
 
 [node name="Animation" type="AnimationPlayer" parent="Light"]
 libraries = {
-&"": SubResource("AnimationLibrary_p3t0x")
+"": SubResource("AnimationLibrary_p3t0x")
 }
 autoplay = "light_animation"
 
 [node name="remote_transform" type="RemoteTransform2D" parent="."]
-
-[node name="AttackArea" type="Area2D" parent="."]
-visible = false
-
-[node name="attack_collision" type="CollisionShape2D" parent="AttackArea"]
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0
@@ -269,7 +263,6 @@ collision_mask = 4
 shape = SubResource("RectangleShape2D_6k5wm")
 
 [connection signal="animation_finished" from="animation" to="." method="_on_animation_finished"]
-[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="DetectionArea" to="." method="_on_area_entered"]
 [connection signal="area_exited" from="DetectionArea" to="." method="_on_area_exited"]

@@ -6054,6 +6054,9 @@ layer_1/tile_data = PackedInt32Array(327665, 1179648, 10, 327666, 1245184, 10, 2
 [node name="Button" parent="." instance=ExtResource("16_kptya")]
 position = Vector2(122, 40.5)
 
+[node name="Box2" parent="." instance=ExtResource("15_6bkff")]
+position = Vector2(106, 37.5)
+
 [node name="Box" parent="." instance=ExtResource("15_6bkff")]
 position = Vector2(106, 52.5)
 
