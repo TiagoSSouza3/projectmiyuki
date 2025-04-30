@@ -1,0 +1,92 @@
+[gd_scene load_steps=10 format=3 uid="uid://djhjj3xm1mj2l"]
+
+[ext_resource type="Script" uid="uid://cafw5gl2508fs" path="res://script/enemy/trap.gd" id="1_uktce"]
+[ext_resource type="Texture2D" uid="uid://dxbaqsb8fxk1k" path="res://sprites/hold/armadilha/armadilha espinho 1.png" id="2_2uosr"]
+[ext_resource type="Texture2D" uid="uid://clr7g1uj8kw7o" path="res://sprites/hold/armadilha/armadilha espinho 2.png" id="3_pox1e"]
+[ext_resource type="Texture2D" uid="uid://d0cf87s415pow" path="res://sprites/hold/armadilha/armadilha espinho 3.png" id="4_54ijk"]
+[ext_resource type="Texture2D" uid="uid://c2rn0ptsikjc6" path="res://sprites/hold/armadilha/armadilha espinho 4.png" id="5_ywlft"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_te8c6"]
+size = Vector2(26, 27)
+
+[sub_resource type="Animation" id="Animation_fc25h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_2uosr")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_87rkv"]
+resource_name = "spike_up"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_2uosr"), ExtResource("3_pox1e"), ExtResource("4_54ijk"), ExtResource("5_ywlft")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qyn08"]
+_data = {
+&"RESET": SubResource("Animation_fc25h"),
+&"spike_up": SubResource("Animation_87rkv")
+}
+
+[node name="Trap" type="Node2D"]
+script = ExtResource("1_uktce")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_2uosr")
+
+[node name="DamageArea" type="Area2D" parent="."]
+
+[node name="Collision" type="CollisionShape2D" parent="DamageArea"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_te8c6")
+
+[node name="Animation" type="AnimationPlayer" parent="."]
+root_node = NodePath("../DamageArea/Collision")
+libraries = {
+&"": SubResource("AnimationLibrary_qyn08")
+}
+
+[connection signal="body_entered" from="DamageArea" to="." method="_on_body_entered"]

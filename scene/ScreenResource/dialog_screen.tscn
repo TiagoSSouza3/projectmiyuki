@@ -1,0 +1,149 @@
+[gd_scene load_steps=7 format=3 uid="uid://dypge8phh4xqd"]
+
+[ext_resource type="Script" uid="uid://bsn3sc3vogr8a" path="res://script/screen/dialog_screen.gd" id="1_4jpmq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ddhm7"]
+line_spacing = 0.0
+shadow_color = Color(0, 0, 0, 0.6)
+
+[sub_resource type="Animation" id="Animation_4jpmq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_8uxj3"]
+resource_name = "appear"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_tbaiv"]
+resource_name = "desappear"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ylcb7"]
+_data = {
+&"RESET": SubResource("Animation_4jpmq"),
+&"appear": SubResource("Animation_8uxj3"),
+&"desappear": SubResource("Animation_tbaiv")
+}
+
+[node name="dialog_screen" type="Control" node_paths=PackedStringArray("_name", "_dialog", "_faceset")]
+modulate = Color(1, 1, 1, 0)
+clip_contents = true
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -115.0
+offset_right = 170.0
+offset_bottom = -35.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+script = ExtResource("1_4jpmq")
+_name = NodePath("Bg/HBoxContainer/VBoxContainer/Name")
+_dialog = NodePath("Bg/HBoxContainer/VBoxContainer/Dialog")
+_faceset = NodePath("Bg/HBoxContainer/Border/Faceset")
+
+[node name="Bg" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.6)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Bg"]
+custom_minimum_size = Vector2(312, 72)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -156.0
+offset_top = -36.0
+offset_right = 156.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Border" type="ColorRect" parent="Bg/HBoxContainer"]
+custom_minimum_size = Vector2(72, 0)
+layout_mode = 2
+
+[node name="Faceset" type="TextureRect" parent="Bg/HBoxContainer/Border"]
+custom_minimum_size = Vector2(70, 72)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -36.0
+offset_right = 35.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Bg/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Name" type="Label" parent="Bg/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Raul"
+label_settings = SubResource("LabelSettings_ddhm7")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Dialog" type="RichTextLabel" parent="Bg/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 9
+
+[node name="Animation" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ylcb7")
+}

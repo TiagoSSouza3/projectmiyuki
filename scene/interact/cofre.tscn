@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://bn4rc2s5xjei4"]
+
+[ext_resource type="Script" uid="uid://cocxye3g80alw" path="res://script/interact/cofre.gd" id="1_4ha3u"]
+[ext_resource type="Texture2D" uid="uid://qmkgjxt6ecoc" path="res://sprites/hold/Cofre.png" id="2_rkybb"]
+[ext_resource type="PackedScene" uid="uid://jbhghis3xbu0" path="res://scene/ScreenResource/password_display.tscn" id="3_rkybb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2imr0"]
+size = Vector2(63, 31.5)
+
+[node name="Cofre" type="Area2D"]
+texture_filter = 1
+collision_layer = 64
+script = ExtResource("1_4ha3u")
+password_display = ExtResource("3_rkybb")
+
+[node name="Texture" type="Sprite2D" parent="."]
+texture = ExtResource("2_rkybb")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 48)
+shape = SubResource("RectangleShape2D_2imr0")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

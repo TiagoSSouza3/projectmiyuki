@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://mv8dnxjqwumb"]
+
+[ext_resource type="Script" uid="uid://6iq6xmg7aom8" path="res://script/interact/Chest.gd" id="1_sw123"]
+[ext_resource type="PackedScene" uid="uid://bsfjgxntsm28h" path="res://scene/interact/ChestUI.tscn" id="2_wl7og"]
+[ext_resource type="Texture2D" uid="uid://bexam17hupgwj" path="res://sprites/hold/bau fechado.png" id="2_yqf22"]
+[ext_resource type="Texture2D" uid="uid://c7kqmhg6vl7r8" path="res://sprites/hold/bau aberto.png" id="4_34xpo"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6acdt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_yqf22")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_34xpo")
+}],
+"loop": false,
+"name": &"abrido",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sw123"]
+size = Vector2(100.582, 34)
+
+[node name="Chest" type="Area2D"]
+collision_mask = 64
+script = ExtResource("1_sw123")
+chest_ui_scene = ExtResource("2_wl7og")
+
+[node name="Texture" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_6acdt")
+animation = &"abrido"
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 46)
+shape = SubResource("RectangleShape2D_sw123")
