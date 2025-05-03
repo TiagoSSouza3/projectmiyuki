@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://nuhx5ertrji"]
 
-[ext_resource type="Script" path="res://script/interact/box.gd" id="1_uymod"]
-[ext_resource type="Texture2D" uid="uid://2rpesr7nrrbn" path="res://sprites/hold/crate.png" id="2_cusfa"]
+[ext_resource type="Script" uid="uid://bgs74pj8mtem8" path="res://script/interact/box.gd" id="1_uymod"]
+[ext_resource type="Texture2D" uid="uid://cn1dwdemfknsw" path="res://sprites/hold/caixa 3.png" id="2_0e3c1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0e3c1"]
 size = Vector2(14, 14)
@@ -20,41 +20,43 @@ script = ExtResource("1_uymod")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("2_cusfa")
+position = Vector2(0, 2.38419e-07)
+scale = Vector2(0.875, 0.875)
+texture = ExtResource("2_0e3c1")
 
 [node name="BoxCollisionArea" type="Area2D" parent="."]
 collision_layer = 4
+collision_mask = 5
 
 [node name="Collision" type="CollisionShape2D" parent="BoxCollisionArea"]
-position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_0e3c1")
 
 [node name="Left" type="Area2D" parent="."]
 collision_layer = 0
 
 [node name="BoxCollision" type="CollisionShape2D" parent="Left"]
-position = Vector2(-11, 4)
+position = Vector2(-11, 0)
 shape = SubResource("RectangleShape2D_7cfpg")
 
 [node name="Right" type="Area2D" parent="."]
 collision_layer = 0
 
 [node name="BoxCollision" type="CollisionShape2D" parent="Right"]
-position = Vector2(11, 4)
+position = Vector2(11, 0)
 shape = SubResource("RectangleShape2D_8hx78")
 
 [node name="Up" type="Area2D" parent="."]
 collision_layer = 0
 
 [node name="BoxCollision" type="CollisionShape2D" parent="Up"]
-position = Vector2(0, -7)
+position = Vector2(0, -11)
 shape = SubResource("RectangleShape2D_16a8o")
 
 [node name="Down" type="Area2D" parent="."]
 collision_layer = 0
 
 [node name="BoxCollision" type="CollisionShape2D" parent="Down"]
-position = Vector2(0, 15)
+position = Vector2(0, 11)
 shape = SubResource("RectangleShape2D_16a8o")
 
 [connection signal="area_entered" from="Left" to="." method="left_area_entered"]

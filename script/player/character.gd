@@ -15,9 +15,7 @@ const TILE_SIZE = 32
 var health : int = 3
 var can_die : bool = false
 var can_track: bool = true
-var attacking: bool = false
 var is_dead: bool = false
-var normal_attack: bool = false
 var dead: bool = false
 var on_hit: bool = false
 var nearby_interactable = null
@@ -26,10 +24,15 @@ var moving = false
 var move_target = Vector2.ZERO
 var last_dir := Vector2.DOWN
 var camZoom = Vector2.ZERO
+var can_animate: bool = false
+var can_move: bool = false
+
 
 func _ready() -> void:
 	add_to_group("character")
-	$animation.play("idle")
+	$DetectionArea.add_to_group("activator")
+	$animation.play("appear")
+	$animation.connect("animation_finished", Callable(self, "_on_animation_finished"))
 
 
 func _process(_delta: float) -> void:
@@ -40,9 +43,15 @@ func _process(_delta: float) -> void:
 	if is_dead:
 		return
 		
-		
+
+
+
+
 func _physics_process(delta: float) -> void:
 	animate()
+	
+	if not can_move:
+		return
 
 	if not moving:
 		get_input()
@@ -76,6 +85,11 @@ func get_input():
 		move_dir = Vector2.RIGHT
 	else:
 		move_dir = Vector2.ZERO
+		
+		
+
+
+
 
 func is_collision_in_direction(offset: Vector2) -> bool:
 	var space_state = get_world_2d().direct_space_state
@@ -92,54 +106,74 @@ func is_collision_in_direction(offset: Vector2) -> bool:
 
 	var result = space_state.intersect_shape(query)
 	return result.size() > 0
-
-
-func animate():
-	if moving:
-		last_dir = move_dir
-
-		if move_dir == Vector2.LEFT:
-			sprite.flip_h = true
-			if animation.current_animation != "left":
-				animation.play("esquerda")
-		elif move_dir == Vector2.RIGHT:
-			sprite.flip_h = false
-			if animation.current_animation != "right":
-				animation.play("direita")
-		elif move_dir == Vector2.DOWN:
-			sprite.flip_h = false
-			if animation.current_animation != "down":
-				animation.play("frente")
-		elif move_dir == Vector2.UP:
-			if animation.current_animation != "up":
-				animation.play("costas")
-	else:
-		if animation.current_animation != "idle":
-			await get_tree().create_timer(0.4).timeout
-			animation.play("idle")
-		
-func follow_camera(camera):
-	var camera_path = camera.get_path()
-	$remote_transform.remote_path = camera_path
 	
-func _on_timer_timeout() -> void:
-	get_tree().reload_current_scene()
 
-func kill() -> void:
-	can_die = true
 
 func _on_animation_finished(anim_name) -> void:
 	if anim_name == "dead":
 		var _reaload: bool = get_tree().reaload_current_scene()
+		
+	if anim_name == "appear":
+		can_animate = true
+		can_move = true
+		animation.play("idle")
+
+
+
+func animate():
+	if not can_animate:
+		return
+
+	if move_dir != Vector2.ZERO:
+		last_dir = move_dir
+
+		if move_dir == Vector2.LEFT:
+			sprite.flip_h = true
+			if animation.current_animation != "esquerda":
+				animation.play("esquerda")
+		elif move_dir == Vector2.RIGHT:
+			sprite.flip_h = false
+			if animation.current_animation != "direita":
+				animation.play("direita")
+		elif move_dir == Vector2.DOWN:
+			sprite.flip_h = false
+			if animation.current_animation != "frente":
+				animation.play("frente")
+		elif move_dir == Vector2.UP:
+			if animation.current_animation != "costas":
+				animation.play("costas")
+	else:
+		if animation.current_animation != "idle":
+			animation.play("idle")
+
+
+func follow_camera(camera):
+	var camera_path = camera.get_path()
+	$remote_transform.remote_path = camera_path
+
+
+
+func _on_timer_timeout() -> void:
+	get_tree().reload_current_scene()
+	
+
+
+
+func kill() -> void:
+	can_die = true
+
+
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.has_method("interact"):
 		nearby_interactable = area
 
+
 func _on_area_exited(area: Area2D) -> void:
 	if area == nearby_interactable:
 		nearby_interactable = null
-		
+
+
 func take_damage(amount):
 	health -= amount
 	print("Tomei dano! Vida atual:", health)
@@ -147,3 +181,4 @@ func take_damage(amount):
 	
 	if health <= 0:
 		queue_free()
+	

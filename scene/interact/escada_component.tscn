@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://bprt74y8utkd8"]
 
-[ext_resource type="Script" path="res://script/interact/escada_component.gd" id="1_y7jb1"]
+[ext_resource type="Script" uid="uid://bj05ngavmm60t" path="res://script/interact/escada_component.gd" id="1_y7jb1"]
 [ext_resource type="Texture2D" uid="uid://cvuufgpkuetcy" path="res://sprites/resources/tile/Dungeon_Tileset.png" id="2_0qg64"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0qg64"]
@@ -38,14 +38,13 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_f08if"]
 _data = {
-"RESET": SubResource("Animation_f08if"),
-"open": SubResource("Animation_0qg64")
+&"RESET": SubResource("Animation_f08if"),
+&"open": SubResource("Animation_0qg64")
 }
 
 [node name="EscadaComponent" type="Area2D" node_paths=PackedStringArray("_animation")]
 collision_layer = 2
 script = ExtResource("1_y7jb1")
-_teleport_position = Vector2(84, 140)
 _animation = NodePath("Animation")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
@@ -62,7 +61,7 @@ frame = 39
 
 [node name="Animation" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_f08if")
+&"": SubResource("AnimationLibrary_f08if")
 }
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

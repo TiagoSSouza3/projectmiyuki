@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://45ikn7pxphwr"]
+[gd_scene load_steps=6 format=3 uid="uid://45ikn7pxphwr"]
 
 [ext_resource type="Script" uid="uid://csljw2q55bf7r" path="res://script/enemy/enemy.gd" id="1_h08p8"]
-[ext_resource type="Texture2D" uid="uid://bpgwl8byprwp2" path="res://sprites/character/Char.png" id="2_8u16h"]
 [ext_resource type="Texture2D" uid="uid://dghmt6s8i018q" path="res://sprites/character/PlayerCostas.png" id="3_b7koy"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yvcfn"]
@@ -11,7 +10,7 @@ animations = [{
 "texture": ExtResource("3_b7koy")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_8u16h")
+"texture": null
 }],
 "loop": false,
 "name": &"default",

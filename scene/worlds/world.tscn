@@ -183,7 +183,7 @@ _hud = NodePath("HUD")
 [node name="Cofre" parent="." instance=ExtResource("17_yn3w0")]
 z_index = 1
 position = Vector2(897, 0)
-collision_layer = 1
+collision_layer = 2
 
 [node name="tilemap" type="TileMap" parent="."]
 texture_filter = 1
@@ -227,11 +227,14 @@ visible = false
 
 [node name="DoorComponent" parent="." instance=ExtResource("9_itgq7")]
 position = Vector2(500, -31)
+collision_layer = 2
 
 [node name="camera" type="Camera2D" parent="."]
 
 [node name="Chest" parent="." instance=ExtResource("14_vfwu8")]
 position = Vector2(750, 0)
+collision_layer = 2
+collision_mask = 1
 
 [node name="Trap" parent="." instance=ExtResource("16_iwpwe")]
 position = Vector2(497, 496)

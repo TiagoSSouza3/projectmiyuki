@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://dg266lb00jj8u"]
+
+[ext_resource type="Script" uid="uid://bs1kpa2lpf61j" path="res://script/interact/Door.gd" id="1_ogj5v"]
+[ext_resource type="Texture2D" uid="uid://cvuufgpkuetcy" path="res://sprites/resources/tile/Dungeon_Tileset.png" id="2_5sbo8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ebf7"]
+size = Vector2(6, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ogj5v"]
+size = Vector2(42, 20)
+
+[node name="DoorSide" type="Node2D"]
+script = ExtResource("1_ogj5v")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_5sbo8")
+hframes = 10
+vframes = 10
+frame = 46
+region_rect = Rect2(96, 96, 32, 16)
+
+[node name="Area" type="Area2D" parent="."]
+collision_layer = 4
+
+[node name="Collision" type="CollisionShape2D" parent="Area"]
+shape = SubResource("RectangleShape2D_7ebf7")
+
+[node name="AreaLoc" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="Collision" type="CollisionShape2D" parent="AreaLoc"]
+shape = SubResource("RectangleShape2D_ogj5v")

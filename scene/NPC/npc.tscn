@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=3 uid="uid://ctxhavhc6qenr"]
+
+[ext_resource type="Script" uid="uid://c7ynanr4255pe" path="res://script/NPC/npc.gd" id="1_pc2mi"]
+[ext_resource type="Texture2D" uid="uid://drc13fkawykk" path="res://sprites/character/Skeleton.png" id="2_yw8wn"]
+[ext_resource type="PackedScene" uid="uid://bo2b6qvrvtj6f" path="res://scene/ScreenResource/dialog_screen.tscn" id="3_yw8wn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pc2mi"]
+radius = 35.0143
+
+[node name="NPC" type="Node2D"]
+script = ExtResource("1_pc2mi")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_yw8wn")
+flip_h = true
+hframes = 4
+vframes = 12
+frame = 4
+
+[node name="InteractionArea" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="collision" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("CircleShape2D_pc2mi")
+
+[node name="InteractionLabel" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -16.0
+offset_right = 131.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.3, 0.3)
+text = "press \"E\" to interact"
+
+[node name="DialogScreen" parent="." instance=ExtResource("3_yw8wn")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="body_entered" from="InteractionArea" to="." method="_on_body_entered"]
+[connection signal="body_exited" from="InteractionArea" to="." method="_on_body_exited"]
