@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://df6co17u4dv04"]
 
-[ext_resource type="Script" uid="uid://w8ct6koxdx2u" path="res://script/interact/door_component.gd" id="1_ilhxd"]
+[ext_resource type="Script" uid="uid://w8ct6koxdx2u" path="res://script/interact/doorspath/door_component.gd" id="1_ilhxd"]
 [ext_resource type="Texture2D" uid="uid://kon6iwjqpvo1" path="res://sprites/hold/Porta2.png" id="1_vvlw6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ilhxd"]

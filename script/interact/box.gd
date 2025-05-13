@@ -37,6 +37,7 @@ func is_colliding_at(position: Vector2) -> bool:
 	var transform = Transform2D(0, position)
 
 	var query = PhysicsShapeQueryParameters2D.new()
+	query.collide_with_areas = true
 	query.shape = box_shape
 	query.transform = transform
 	query.exclude = [$BoxCollisionArea.get_rid()]

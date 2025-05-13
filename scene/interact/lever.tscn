@@ -1,0 +1,95 @@
+[gd_scene load_steps=9 format=3 uid="uid://clb7cien3nvwy"]
+
+[ext_resource type="Script" uid="uid://cfqej7eh08xss" path="res://script/interact/lever.gd" id="1_2nun3"]
+[ext_resource type="Texture2D" uid="uid://ce0wgttulf2d7" path="res://sprites/resources/tile/DampDungeons/Animations/Dungeon_ObjectsDungeon.png" id="1_c6don"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2nun3"]
+size = Vector2(16, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oeohr"]
+
+[sub_resource type="Animation" id="Animation_oeohr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Texture:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [29]
+}
+
+[sub_resource type="Animation" id="Animation_2nun3"]
+resource_name = "left"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Texture:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [28, 27]
+}
+
+[sub_resource type="Animation" id="Animation_7uipb"]
+resource_name = "right"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Texture:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [28, 29]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wqqaw"]
+_data = {
+&"RESET": SubResource("Animation_oeohr"),
+&"left": SubResource("Animation_2nun3"),
+&"right": SubResource("Animation_7uipb")
+}
+
+[node name="Lever" type="Node2D"]
+script = ExtResource("1_2nun3")
+
+[node name="Texture" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_c6don")
+hframes = 12
+vframes = 8
+frame = 29
+
+[node name="Area" type="Area2D" parent="."]
+collision_layer = 4
+
+[node name="Collision" type="CollisionShape2D" parent="Area"]
+position = Vector2(0, 11.5)
+shape = SubResource("RectangleShape2D_2nun3")
+
+[node name="AreaActivator" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="Collision" type="CollisionShape2D" parent="AreaActivator"]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_oeohr")
+
+[node name="Animation" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_wqqaw")
+}
+
+[connection signal="body_entered" from="AreaActivator" to="." method="_on_body_entered"]
+[connection signal="body_exited" from="AreaActivator" to="." method="_on_body_exited"]

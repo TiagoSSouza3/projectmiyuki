@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://cjmoom0vxrs2c"]
+[gd_scene load_steps=34 format=3 uid="uid://cjmoom0vxrs2c"]
 
 [ext_resource type="Texture2D" uid="uid://dsus53yhewsw4" path="res://sprites/resources/tile/DampDungeons/Tiles/DungeonDecorations.png" id="1_f8qel"]
 [ext_resource type="Script" uid="uid://vrktdgtif4of" path="res://script/worlds/world.gd" id="1_jebcj"]
@@ -16,9 +16,10 @@
 [ext_resource type="PackedScene" uid="uid://dn0eyj2v6sa4x" path="res://scene/character.tscn" id="13_thx17"]
 [ext_resource type="PackedScene" uid="uid://nuhx5ertrji" path="res://scene/interact/box.tscn" id="15_6bkff"]
 [ext_resource type="PackedScene" uid="uid://baagsor84nwno" path="res://scene/interact/button.tscn" id="16_kptya"]
-[ext_resource type="PackedScene" uid="uid://jff67yafo8pd" path="res://scene/interact/doorfront.tscn" id="17_4qcwu"]
+[ext_resource type="PackedScene" uid="uid://jff67yafo8pd" path="res://scene/interact/doorfronttutorial.tscn" id="17_4qcwu"]
 [ext_resource type="PackedScene" uid="uid://bprt74y8utkd8" path="res://scene/interact/escada_component.tscn" id="18_0tp6q"]
 [ext_resource type="PackedScene" uid="uid://ctxhavhc6qenr" path="res://scene/NPC/npc.tscn" id="19_bod3q"]
+[ext_resource type="Script" uid="uid://dj8sfl0cga4ac" path="res://script/screen/transition_scene.gd" id="20_my44x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x0ka3"]
 texture = ExtResource("1_f8qel")
@@ -2130,3 +2131,7 @@ position = Vector2(-6, -87.5)
 [node name="NPC" parent="." instance=ExtResource("19_bod3q")]
 z_index = 1
 position = Vector2(-86.5, 56)
+
+[node name="TransitionScene" type="Node" parent="."]
+script = ExtResource("20_my44x")
+scene_path = "res://scene/worlds/lobby.tscn"

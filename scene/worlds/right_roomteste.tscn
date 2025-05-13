@@ -1,32 +1,32 @@
-[gd_scene load_steps=39 format=3 uid="uid://0llbqnpl478o"]
+[gd_scene load_steps=39 format=3 uid="uid://dfl06vl4f31i4"]
 
-[ext_resource type="Script" uid="uid://cfgx00uh5k3hh" path="res://script/worlds/right_room.gd" id="1_pupri"]
-[ext_resource type="Texture2D" uid="uid://cvuufgpkuetcy" path="res://sprites/resources/tile/Dungeon_Tileset.png" id="2_5ktpy"]
-[ext_resource type="Texture2D" uid="uid://dsus53yhewsw4" path="res://sprites/resources/tile/DampDungeons/Tiles/DungeonDecorations.png" id="2_h8wdm"]
-[ext_resource type="Texture2D" uid="uid://ce0wgttulf2d7" path="res://sprites/resources/tile/DampDungeons/Animations/Dungeon_ObjectsDungeon.png" id="4_oownd"]
-[ext_resource type="Texture2D" uid="uid://cm50ihsw3ikvo" path="res://sprites/resources/tile/Char/Skeleton.png" id="5_r3yq2"]
-[ext_resource type="Texture2D" uid="uid://btu1dvkq78xjj" path="res://sprites/resources/tile/0x72_DungeonTilesetII_v1.7/ParedeCortada.png" id="6_0ggu6"]
-[ext_resource type="Texture2D" uid="uid://djtvkok4kex6" path="res://sprites/resources/tile/DampDungeons/Tiles/Dungeon_Autotiles.png" id="6_kb618"]
-[ext_resource type="Texture2D" uid="uid://dwaoihm0n7au8" path="res://sprites/resources/tile/DampDungeons/Tiles/Dungeon_WallsAndFloors.png" id="7_elllc"]
-[ext_resource type="Texture2D" uid="uid://cdni70eccc4ne" path="res://sprites/resources/tile/0x72_DungeonTilesetII_v1.7/atlas_floor-16x16.png" id="7_odfwi"]
-[ext_resource type="Texture2D" uid="uid://ckgmn3m7v2hib" path="res://sprites/resources/tile/0x72_DungeonTilesetII_v1.7/atlas_walls_high-16x32.png" id="8_mgdek"]
-[ext_resource type="PackedScene" uid="uid://dn0eyj2v6sa4x" path="res://scene/character.tscn" id="8_tgrtx"]
-[ext_resource type="Texture2D" uid="uid://qo78ckuegokp" path="res://sprites/resources/tile/0x72_DungeonTilesetII_v1.7/atlas_walls_low-16x16.png" id="9_gimcv"]
-[ext_resource type="Texture2D" uid="uid://cbh8wg7qaia2o" path="res://sprites/resources/tile/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7.png" id="11_5v3hv"]
-[ext_resource type="Texture2D" uid="uid://ecii87pu47m0" path="res://sprites/resources/tile/DampDungeons/Tiles/Dungeon_WaterAnimation.png" id="11_ihf1w"]
-[ext_resource type="Texture2D" uid="uid://vco4c4ruc5qy" path="res://sprites/resources/tile/DampDungeons/Animations/Dungeon_ObjectBigdoor.png" id="13_8lwao"]
-[ext_resource type="PackedScene" uid="uid://baagsor84nwno" path="res://scene/interact/button.tscn" id="14_jgo36"]
-[ext_resource type="PackedScene" uid="uid://nuhx5ertrji" path="res://scene/interact/box.tscn" id="15_ens3v"]
-[ext_resource type="Script" uid="uid://dvdxb123cwkfj" path="res://script/interact/button/button_multi.gd" id="16_elllc"]
-[ext_resource type="PackedScene" uid="uid://dg266lb00jj8u" path="res://scene/interact/doorspath/doorside.tscn" id="17_h8wdm"]
-[ext_resource type="Script" uid="uid://dj8sfl0cga4ac" path="res://script/screen/transition_scene.gd" id="19_oownd"]
-[ext_resource type="PackedScene" uid="uid://jff67yafo8pd" path="res://scene/interact/doorfronttutorial.tscn" id="21_r3yq2"]
-[ext_resource type="PackedScene" uid="uid://31mwrq2m7sh8" path="res://scene/ScreenResource/key/key.tscn" id="22_ihf1w"]
-[ext_resource type="PackedScene" uid="uid://mv8dnxjqwumb" path="res://scene/interact/Chest.tscn" id="22_kb618"]
-[ext_resource type="Script" uid="uid://xcysw7f5acld" path="res://script/interact/doors/door_multi.gd" id="23_elllc"]
+[ext_resource type="Script" uid="uid://cfgx00uh5k3hh" path="res://script/worlds/right_room.gd" id="1_2yc1s"]
+[ext_resource type="Texture2D" uid="uid://dsus53yhewsw4" path="res://sprites/resources/tile/DampDungeons/Tiles/DungeonDecorations.png" id="2_tfldh"]
+[ext_resource type="Texture2D" uid="uid://cvuufgpkuetcy" path="res://sprites/resources/tile/Dungeon_Tileset.png" id="3_apj8d"]
+[ext_resource type="Texture2D" uid="uid://ce0wgttulf2d7" path="res://sprites/resources/tile/DampDungeons/Animations/Dungeon_ObjectsDungeon.png" id="4_6k4gp"]
+[ext_resource type="Texture2D" uid="uid://cm50ihsw3ikvo" path="res://sprites/resources/tile/Char/Skeleton.png" id="5_5oomn"]
+[ext_resource type="Texture2D" uid="uid://btu1dvkq78xjj" path="res://sprites/resources/tile/0x72_DungeonTilesetII_v1.7/ParedeCortada.png" id="6_ncvhn"]
+[ext_resource type="Texture2D" uid="uid://djtvkok4kex6" path="res://sprites/resources/tile/DampDungeons/Tiles/Dungeon_Autotiles.png" id="7_jurt1"]
+[ext_resource type="Texture2D" uid="uid://dwaoihm0n7au8" path="res://sprites/resources/tile/DampDungeons/Tiles/Dungeon_WallsAndFloors.png" id="8_rlf8y"]
+[ext_resource type="Texture2D" uid="uid://cdni70eccc4ne" path="res://sprites/resources/tile/0x72_DungeonTilesetII_v1.7/atlas_floor-16x16.png" id="9_jxkny"]
+[ext_resource type="Texture2D" uid="uid://ckgmn3m7v2hib" path="res://sprites/resources/tile/0x72_DungeonTilesetII_v1.7/atlas_walls_high-16x32.png" id="10_lrq3w"]
+[ext_resource type="Texture2D" uid="uid://qo78ckuegokp" path="res://sprites/resources/tile/0x72_DungeonTilesetII_v1.7/atlas_walls_low-16x16.png" id="11_quccu"]
+[ext_resource type="Texture2D" uid="uid://ecii87pu47m0" path="res://sprites/resources/tile/DampDungeons/Tiles/Dungeon_WaterAnimation.png" id="12_qfmyb"]
+[ext_resource type="Texture2D" uid="uid://cbh8wg7qaia2o" path="res://sprites/resources/tile/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7.png" id="13_dmkt1"]
+[ext_resource type="Texture2D" uid="uid://vco4c4ruc5qy" path="res://sprites/resources/tile/DampDungeons/Animations/Dungeon_ObjectBigdoor.png" id="14_uhnb1"]
+[ext_resource type="PackedScene" uid="uid://baagsor84nwno" path="res://scene/interact/button.tscn" id="15_g28hd"]
+[ext_resource type="Script" uid="uid://dvdxb123cwkfj" path="res://script/interact/button/button_multi.gd" id="16_ykfmv"]
+[ext_resource type="PackedScene" uid="uid://nuhx5ertrji" path="res://scene/interact/box.tscn" id="17_j1dcy"]
+[ext_resource type="PackedScene" uid="uid://dg266lb00jj8u" path="res://scene/interact/doorspath/doorside.tscn" id="18_h64pc"]
+[ext_resource type="Script" uid="uid://dj8sfl0cga4ac" path="res://script/screen/transition_scene.gd" id="19_btu2i"]
+[ext_resource type="PackedScene" uid="uid://dn0eyj2v6sa4x" path="res://scene/character.tscn" id="20_1ccrl"]
+[ext_resource type="PackedScene" uid="uid://mv8dnxjqwumb" path="res://scene/interact/Chest.tscn" id="21_3u353"]
+[ext_resource type="PackedScene" uid="uid://jff67yafo8pd" path="res://scene/interact/doorfronttutorial.tscn" id="22_t0oh2"]
+[ext_resource type="PackedScene" uid="uid://31mwrq2m7sh8" path="res://scene/ScreenResource/key/key.tscn" id="22_tfldh"]
+[ext_resource type="Script" uid="uid://xcysw7f5acld" path="res://script/interact/doors/door_multi.gd" id="23_y4p7g"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x0ka3"]
-texture = ExtResource("2_h8wdm")
+texture = ExtResource("2_tfldh")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -415,7 +415,7 @@ texture = ExtResource("2_h8wdm")
 0:20/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rj586"]
-texture = ExtResource("2_5ktpy")
+texture = ExtResource("3_apj8d")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -544,7 +544,7 @@ texture = ExtResource("2_5ktpy")
 9:9/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ta5nu"]
-texture = ExtResource("4_oownd")
+texture = ExtResource("4_6k4gp")
 1:0/0 = 0
 2:0/0 = 0
 9:0/0 = 0
@@ -646,7 +646,7 @@ texture = ExtResource("4_oownd")
 2:15/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rjqkl"]
-texture = ExtResource("5_r3yq2")
+texture = ExtResource("5_5oomn")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -811,7 +811,7 @@ texture = ExtResource("5_r3yq2")
 7:23/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h8wdm"]
-texture = ExtResource("6_0ggu6")
+texture = ExtResource("6_ncvhn")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -861,7 +861,7 @@ texture = ExtResource("6_0ggu6")
 11:3/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0h7mo"]
-texture = ExtResource("6_kb618")
+texture = ExtResource("7_jurt1")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -1022,7 +1022,7 @@ texture = ExtResource("6_kb618")
 7:14/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nr8wp"]
-texture = ExtResource("7_elllc")
+texture = ExtResource("8_rlf8y")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -1159,7 +1159,7 @@ texture = ExtResource("7_elllc")
 1:22/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4d7sh"]
-texture = ExtResource("7_odfwi")
+texture = ExtResource("9_jxkny")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -1207,7 +1207,7 @@ texture = ExtResource("7_odfwi")
 5:6/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ir8iy"]
-texture = ExtResource("8_mgdek")
+texture = ExtResource("10_lrq3w")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -1356,7 +1356,7 @@ texture = ExtResource("8_mgdek")
 23:7/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hqns4"]
-texture = ExtResource("9_gimcv")
+texture = ExtResource("11_quccu")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -1452,7 +1452,7 @@ texture = ExtResource("9_gimcv")
 11:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d2bti"]
-texture = ExtResource("11_ihf1w")
+texture = ExtResource("12_qfmyb")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -1509,7 +1509,7 @@ texture = ExtResource("11_ihf1w")
 8:5/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_flf07"]
-texture = ExtResource("11_5v3hv")
+texture = ExtResource("13_dmkt1")
 1:0/0 = 0
 2:0/0 = 0
 3:0/0 = 0
@@ -2142,7 +2142,7 @@ texture = ExtResource("11_5v3hv")
 16:28/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k73cj"]
-texture = ExtResource("13_8lwao")
+texture = ExtResource("14_uhnb1")
 0:1/0 = 0
 1:1/0 = 0
 0:2/0 = 0
@@ -2194,7 +2194,7 @@ sources/12 = SubResource("TileSetAtlasSource_h8wdm")
 [node name="RightRoom" type="Node2D" node_paths=PackedStringArray("_hud")]
 texture_filter = 1
 scale = Vector2(2, 2)
-script = ExtResource("1_pupri")
+script = ExtResource("1_2yc1s")
 _hud = NodePath("HUD")
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -2216,165 +2216,165 @@ layer_2/tile_data = PackedInt32Array(-524303, 589830, 2, -458767, 589830, 2, -39
 
 [node name="Buttons" type="Node2D" parent="."]
 
-[node name="Button" parent="Buttons" instance=ExtResource("14_jgo36")]
+[node name="Button" parent="Buttons" instance=ExtResource("15_g28hd")]
 position = Vector2(122, -87.5)
-script = ExtResource("16_elllc")
+script = ExtResource("16_ykfmv")
 
-[node name="Button2" parent="Buttons" instance=ExtResource("14_jgo36")]
+[node name="Button2" parent="Buttons" instance=ExtResource("15_g28hd")]
 position = Vector2(122, -71.5)
-script = ExtResource("16_elllc")
+script = ExtResource("16_ykfmv")
 
-[node name="Button3" parent="Buttons" instance=ExtResource("14_jgo36")]
+[node name="Button3" parent="Buttons" instance=ExtResource("15_g28hd")]
 position = Vector2(122, -55.5)
-script = ExtResource("16_elllc")
+script = ExtResource("16_ykfmv")
 
-[node name="Button4" parent="Buttons" instance=ExtResource("14_jgo36")]
+[node name="Button4" parent="Buttons" instance=ExtResource("15_g28hd")]
 position = Vector2(122, -39.5)
-script = ExtResource("16_elllc")
+script = ExtResource("16_ykfmv")
 
-[node name="Button5" parent="Buttons" instance=ExtResource("14_jgo36")]
+[node name="Button5" parent="Buttons" instance=ExtResource("15_g28hd")]
 position = Vector2(106, -71.5)
-script = ExtResource("16_elllc")
+script = ExtResource("16_ykfmv")
 
-[node name="Button6" parent="Buttons" instance=ExtResource("14_jgo36")]
+[node name="Button6" parent="Buttons" instance=ExtResource("15_g28hd")]
 position = Vector2(106, -55.5)
-script = ExtResource("16_elllc")
+script = ExtResource("16_ykfmv")
 
-[node name="Button7" parent="Buttons" instance=ExtResource("14_jgo36")]
+[node name="Button7" parent="Buttons" instance=ExtResource("15_g28hd")]
 position = Vector2(106, -39.5)
-script = ExtResource("16_elllc")
+script = ExtResource("16_ykfmv")
 
-[node name="Button8" parent="Buttons" instance=ExtResource("14_jgo36")]
+[node name="Button8" parent="Buttons" instance=ExtResource("15_g28hd")]
 position = Vector2(74, -87.5)
-script = ExtResource("16_elllc")
+script = ExtResource("16_ykfmv")
 
-[node name="Button9" parent="Buttons" instance=ExtResource("14_jgo36")]
+[node name="Button9" parent="Buttons" instance=ExtResource("15_g28hd")]
 position = Vector2(90, -87.5)
-script = ExtResource("16_elllc")
+script = ExtResource("16_ykfmv")
 
-[node name="Button10" parent="Buttons" instance=ExtResource("14_jgo36")]
+[node name="Button10" parent="Buttons" instance=ExtResource("15_g28hd")]
 position = Vector2(105.5, -87.5)
-script = ExtResource("16_elllc")
+script = ExtResource("16_ykfmv")
 
-[node name="Button11" parent="Buttons" instance=ExtResource("14_jgo36")]
+[node name="Button11" parent="Buttons" instance=ExtResource("15_g28hd")]
 position = Vector2(90, -71.5)
-script = ExtResource("16_elllc")
+script = ExtResource("16_ykfmv")
 
-[node name="Button12" parent="Buttons" instance=ExtResource("14_jgo36")]
+[node name="Button12" parent="Buttons" instance=ExtResource("15_g28hd")]
 position = Vector2(90, -55.5)
-script = ExtResource("16_elllc")
+script = ExtResource("16_ykfmv")
 
-[node name="Button13" parent="Buttons" instance=ExtResource("14_jgo36")]
+[node name="Button13" parent="Buttons" instance=ExtResource("15_g28hd")]
 position = Vector2(90, -39.5)
-script = ExtResource("16_elllc")
+script = ExtResource("16_ykfmv")
 
-[node name="Button14" parent="Buttons" instance=ExtResource("14_jgo36")]
+[node name="Button14" parent="Buttons" instance=ExtResource("15_g28hd")]
 position = Vector2(74, -71.5)
-script = ExtResource("16_elllc")
+script = ExtResource("16_ykfmv")
 
-[node name="Button15" parent="Buttons" instance=ExtResource("14_jgo36")]
+[node name="Button15" parent="Buttons" instance=ExtResource("15_g28hd")]
 position = Vector2(74, -55.5)
-script = ExtResource("16_elllc")
+script = ExtResource("16_ykfmv")
 
-[node name="Button16" parent="Buttons" instance=ExtResource("14_jgo36")]
+[node name="Button16" parent="Buttons" instance=ExtResource("15_g28hd")]
 position = Vector2(74, -39.5)
-script = ExtResource("16_elllc")
+script = ExtResource("16_ykfmv")
 
-[node name="Button17" parent="Buttons" instance=ExtResource("14_jgo36")]
+[node name="Button17" parent="Buttons" instance=ExtResource("15_g28hd")]
 position = Vector2(58, -55.5)
-script = ExtResource("16_elllc")
+script = ExtResource("16_ykfmv")
 
-[node name="Button18" parent="Buttons" instance=ExtResource("14_jgo36")]
+[node name="Button18" parent="Buttons" instance=ExtResource("15_g28hd")]
 position = Vector2(42, -55.5)
-script = ExtResource("16_elllc")
+script = ExtResource("16_ykfmv")
 
-[node name="Button19" parent="Buttons" instance=ExtResource("14_jgo36")]
+[node name="Button19" parent="Buttons" instance=ExtResource("15_g28hd")]
 position = Vector2(58, -71.5)
-script = ExtResource("16_elllc")
+script = ExtResource("16_ykfmv")
 
-[node name="Button20" parent="Buttons" instance=ExtResource("14_jgo36")]
+[node name="Button20" parent="Buttons" instance=ExtResource("15_g28hd")]
 position = Vector2(42, -71.5)
-script = ExtResource("16_elllc")
+script = ExtResource("16_ykfmv")
 
-[node name="Boxx" type="Node2D" parent="."]
+[node name="Box" parent="." instance=ExtResource("17_j1dcy")]
+position = Vector2(74, -87.5)
 
-[node name="Box" parent="Boxx" instance=ExtResource("15_ens3v")]
-position = Vector2(-54, 24.5)
+[node name="Box2" parent="." instance=ExtResource("17_j1dcy")]
+position = Vector2(74, -55.5)
 
-[node name="Box2" parent="Boxx" instance=ExtResource("15_ens3v")]
-position = Vector2(-70, -55.5)
+[node name="Box3" parent="." instance=ExtResource("17_j1dcy")]
+position = Vector2(122, -39.5)
 
-[node name="Box3" parent="Boxx" instance=ExtResource("15_ens3v")]
-position = Vector2(-102, -39.5)
+[node name="Box4" parent="." instance=ExtResource("17_j1dcy")]
+position = Vector2(90, -55.5)
 
-[node name="Box4" parent="Boxx" instance=ExtResource("15_ens3v")]
-position = Vector2(-102, -55.5)
+[node name="Box5" parent="." instance=ExtResource("17_j1dcy")]
+position = Vector2(74, -71.5)
 
-[node name="Box5" parent="Boxx" instance=ExtResource("15_ens3v")]
-position = Vector2(-70, -71.5)
+[node name="Box6" parent="." instance=ExtResource("17_j1dcy")]
+position = Vector2(106, -87.5)
 
-[node name="Box6" parent="Boxx" instance=ExtResource("15_ens3v")]
-position = Vector2(-102, -23.5)
+[node name="Box7" parent="." instance=ExtResource("17_j1dcy")]
+position = Vector2(74, -39.5)
 
-[node name="Box7" parent="Boxx" instance=ExtResource("15_ens3v")]
-position = Vector2(-86, -23.5)
+[node name="Box8" parent="." instance=ExtResource("17_j1dcy")]
+position = Vector2(106, -55.5)
 
-[node name="Box8" parent="Boxx" instance=ExtResource("15_ens3v")]
-position = Vector2(-118, 8.5)
-
-[node name="Box9" parent="Boxx" instance=ExtResource("15_ens3v")]
+[node name="Box9" parent="." instance=ExtResource("17_j1dcy")]
 position = Vector2(42, -55.5)
 
-[node name="Box10" parent="Boxx" instance=ExtResource("15_ens3v")]
-position = Vector2(-6, -55.5)
+[node name="Box10" parent="." instance=ExtResource("17_j1dcy")]
+position = Vector2(58, -55.5)
 
-[node name="Box11" parent="Boxx" instance=ExtResource("15_ens3v")]
-position = Vector2(26, -55.5)
+[node name="Box11" parent="." instance=ExtResource("17_j1dcy")]
+position = Vector2(42, -71.5)
 
-[node name="Box12" parent="Boxx" instance=ExtResource("15_ens3v")]
-position = Vector2(10, -39.5)
+[node name="Box12" parent="." instance=ExtResource("17_j1dcy")]
+position = Vector2(106, -39.5)
 
-[node name="Box13" parent="Boxx" instance=ExtResource("15_ens3v")]
-position = Vector2(26, -71.5)
+[node name="Box13" parent="." instance=ExtResource("17_j1dcy")]
+position = Vector2(58, -71.5)
 
-[node name="Box14" parent="Boxx" instance=ExtResource("15_ens3v")]
-position = Vector2(-22, -39.5)
+[node name="Box14" parent="." instance=ExtResource("17_j1dcy")]
+position = Vector2(90, -39.5)
 
-[node name="Box15" parent="Boxx" instance=ExtResource("15_ens3v")]
-position = Vector2(-118, -7.5)
+[node name="Box15" parent="." instance=ExtResource("17_j1dcy")]
+position = Vector2(106, -71.5)
 
-[node name="Box16" parent="Boxx" instance=ExtResource("15_ens3v")]
-position = Vector2(-134, -87.5)
+[node name="Box16" parent="." instance=ExtResource("17_j1dcy")]
+position = Vector2(122, -87.5)
 
-[node name="Box17" parent="Boxx" instance=ExtResource("15_ens3v")]
-position = Vector2(-134, -55.5)
+[node name="Box17" parent="." instance=ExtResource("17_j1dcy")]
+position = Vector2(122, -55.5)
 
-[node name="Box18" parent="Boxx" instance=ExtResource("15_ens3v")]
-position = Vector2(-86, 8.5)
+[node name="Box18" parent="." instance=ExtResource("17_j1dcy")]
+position = Vector2(90, -87.5)
 
-[node name="Box19" parent="Boxx" instance=ExtResource("15_ens3v")]
-position = Vector2(-70, 24.5)
+[node name="Box19" parent="." instance=ExtResource("17_j1dcy")]
+position = Vector2(90, -71.5)
 
-[node name="Box20" parent="Boxx" instance=ExtResource("15_ens3v")]
-position = Vector2(-102, 24.5)
+[node name="Box20" parent="." instance=ExtResource("17_j1dcy")]
+position = Vector2(122, -71.5)
 
-[node name="DoorSideRight" parent="." groups=["activator"] instance=ExtResource("17_h8wdm")]
+[node name="DoorSideRight" parent="." groups=["activator"] instance=ExtResource("18_h64pc")]
 position = Vector2(-160.5, 49)
 
 [node name="TransitionScene" type="Node" parent="DoorSideRight"]
-script = ExtResource("19_oownd")
+script = ExtResource("19_btu2i")
 scene_path = "res://scene/worlds/lobby.tscn"
 
-[node name="character" parent="." instance=ExtResource("8_tgrtx")]
+[node name="character" parent="." instance=ExtResource("20_1ccrl")]
 z_index = 1
-position = Vector2(-150, 40.5)
+position = Vector2(10, -39.5)
 scale = Vector2(0.5, 0.5)
 
-[node name="Chest" parent="." instance=ExtResource("22_kb618")]
+[node name="Chest" parent="." instance=ExtResource("21_3u353")]
 position = Vector2(18, -111.5)
 
-[node name="Key" parent="Chest" instance=ExtResource("22_ihf1w")]
+[node name="Key" parent="Chest" instance=ExtResource("22_tfldh")]
+visible = false
+position = Vector2(0, 6.5)
 
-[node name="DoorFront" parent="." instance=ExtResource("21_r3yq2")]
+[node name="DoorFront" parent="." instance=ExtResource("22_t0oh2")]
 position = Vector2(17.5, -88)
-script = ExtResource("23_elllc")
+script = ExtResource("23_y4p7g")

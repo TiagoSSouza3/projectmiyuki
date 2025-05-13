@@ -1,0 +1,78 @@
+[gd_scene load_steps=5 format=3 uid="uid://m4jj51xu03su"]
+
+[ext_resource type="Texture2D" uid="uid://cvlxusskytnec" path="res://sprites/resources/light.png" id="1_ejivs"]
+
+[sub_resource type="Animation" id="Animation_7v2w7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.8]
+}
+
+[sub_resource type="Animation" id="Animation_6k5wm"]
+resource_name = "light_animation"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.3, 0.25]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.8, 0.6]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p3t0x"]
+_data = {
+&"RESET": SubResource("Animation_7v2w7"),
+&"light_animation": SubResource("Animation_6k5wm")
+}
+
+[node name="Light" type="PointLight2D"]
+visible = false
+color = Color(1, 1, 2, 1)
+energy = 0.8
+texture = ExtResource("1_ejivs")
+texture_scale = 0.3
+
+[node name="Animation" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_p3t0x")
+}
+autoplay = "light_animation"

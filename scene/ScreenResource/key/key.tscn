@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://31mwrq2m7sh8"]
+
+[ext_resource type="Texture2D" uid="uid://d2bg10v0b0li2" path="res://sprites/resources/tile/2D Pixel Dungeon Asset Pack/items and trap_animation/keys/keys_1_1.png" id="1_u8yng"]
+[ext_resource type="Texture2D" uid="uid://dpdudvui7anc8" path="res://sprites/resources/tile/2D Pixel Dungeon Asset Pack/items and trap_animation/keys/keys_1_2.png" id="2_ty863"]
+[ext_resource type="Texture2D" uid="uid://7t6bk1i50qek" path="res://sprites/resources/tile/2D Pixel Dungeon Asset Pack/items and trap_animation/keys/keys_1_4.png" id="3_ycefm"]
+[ext_resource type="Texture2D" uid="uid://54kjxjy8bsiw" path="res://sprites/resources/tile/2D Pixel Dungeon Asset Pack/items and trap_animation/keys/keys_1_3.png" id="4_edig4"]
+[ext_resource type="PackedScene" uid="uid://m4jj51xu03su" path="res://scene/ScreenResource/light.tscn" id="5_1aeo2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_blue7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_u8yng")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ty863")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ycefm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_edig4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ycefm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ty863")
+}],
+"loop": true,
+"name": &"key",
+"speed": 5.0
+}]
+
+[node name="Key" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_blue7")
+animation = &"key"
+frame_progress = 0.604142
+
+[node name="Light" parent="." instance=ExtResource("5_1aeo2")]
+visible = true
+position = Vector2(-9.53674e-07, 9.53674e-07)
+scale = Vector2(0.872396, 0.755208)
+color = Color(1, 1.5, 1.5, 0.545)

@@ -1,0 +1,124 @@
+[gd_scene load_steps=9 format=3 uid="uid://druhinnettmvi"]
+
+[ext_resource type="Texture2D" uid="uid://croijnbfr5ahf" path="res://sprites/hold/preto.png" id="1_rode3"]
+[ext_resource type="Script" uid="uid://blw6fh6jq0hid" path="res://script/screen/dialog/dialog_container.gd" id="1_w4ulp"]
+[ext_resource type="Texture2D" uid="uid://dcmcw4nn41bqa" path="res://sprites/resources/tile/2D Pixel Dungeon Asset Pack/Character_animation/monsters_idle/skull/v2/skull_v2_1.png" id="2_w4ulp"]
+
+[sub_resource type="Theme" id="Theme_0rc3c"]
+
+[sub_resource type="Animation" id="Animation_rode3"]
+resource_name = "fade_in"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_w4ulp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_0rc3c"]
+resource_name = "fade_out"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0rc3c"]
+_data = {
+&"RESET": SubResource("Animation_w4ulp"),
+&"fade_in": SubResource("Animation_rode3"),
+&"fade_out": SubResource("Animation_0rc3c")
+}
+
+[node name="DialogContainer" type="Control"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w4ulp")
+
+[node name="Background" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(300, 75)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -50.0
+offset_right = 20.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_0rc3c")
+texture = ExtResource("1_rode3")
+
+[node name="Portrait" type="TextureRect" parent="Background"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 5.0
+offset_top = -20.0
+offset_right = 45.0
+offset_bottom = 20.0
+grow_vertical = 2
+texture = ExtResource("2_w4ulp")
+
+[node name="Text" type="RichTextLabel" parent="Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -146.0
+offset_top = -37.5
+offset_right = 242.0
+offset_bottom = 61.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.75, 0.75)
+
+[node name="Animation" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_0rc3c")
+}
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true

@@ -17,8 +17,7 @@ func _ready():
 
 	if display:
 		display.process_mode = Node.PROCESS_MODE_ALWAYS
-	else:
-		print("❌ ERRO: Display não encontrado!")
+
 
 	var keypad = $Panel.get_node("Keypad")
 	if keypad:
@@ -27,8 +26,6 @@ func _ready():
 			if button:
 				button.process_mode = Node.PROCESS_MODE_ALWAYS
 				button.pressed.connect(_on_button_pressed.bind(button.text))
-	else:
-		print("❌ ERRO: Keypad não encontrado!")
 
 func _on_button_pressed(value: String):
 	match value:
@@ -49,6 +46,8 @@ func _on_button_pressed(value: String):
 
 func _unlock_safe():
 	print("Cofre Aberto!")
+	SignalManager.open_door_tutorial.emit()
+	SignalManager.open_safe.emit()
 	await get_tree().create_timer(1).timeout
 	queue_free() 
 	get_tree().paused = false

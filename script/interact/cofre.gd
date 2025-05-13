@@ -8,7 +8,7 @@ func _process(_delta):
 	if player_near and Input.is_action_just_pressed("interact"):
 		if password_display:
 			ui_instance = password_display.instantiate()
-			get_node("/root/world/CanvasLayer").add_child(ui_instance)
+			get_node("/root/BottomRoom/CanvasLayer").add_child(ui_instance)
 			get_tree().paused = true
 			print("UI instanciada:", ui_instance)
 

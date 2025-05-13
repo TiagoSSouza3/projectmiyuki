@@ -32,25 +32,25 @@ func _ready() -> void:
 	add_to_group("character")
 	$DetectionArea.add_to_group("activator")
 	$animation.play("appear")
-	$animation.connect("animation_finished", Callable(self, "_on_animation_finished"))
-
 
 func _process(_delta: float) -> void:
+	if is_dead:
+		return
+		
+	if Input.is_action_just_pressed("restart"):
+		is_dead = true
+		_physics_process(false)
+		$animation.play("dead")
+	
 	if Input.is_action_just_pressed("interact") and nearby_interactable:
 		if nearby_interactable.has_method("interact"):
 			nearby_interactable.interact()
 	
-	if is_dead:
-		return
 		
-
-
-
-
 func _physics_process(delta: float) -> void:
 	animate()
 	
-	if not can_move:
+	if not can_move or is_dead:
 		return
 
 	if not moving:
@@ -86,42 +86,36 @@ func get_input():
 	else:
 		move_dir = Vector2.ZERO
 		
-		
-
-
-
 
 func is_collision_in_direction(offset: Vector2) -> bool:
 	var space_state = get_world_2d().direct_space_state
 
 	var shape = collision.shape
-	var transform = Transform2D(0, global_position)
-	transform.origin += offset
+	var transform2d = Transform2D(0, global_position)
+	transform2d.origin += offset
 
 	var query = PhysicsShapeQueryParameters2D.new()
 	query.set_collide_with_areas(true)
 	query.shape = shape
-	query.transform = transform
+	query.transform = transform2d
 	query.collision_mask = 0x000d
 
 	var result = space_state.intersect_shape(query)
 	return result.size() > 0
 	
-
-
 func _on_animation_finished(anim_name) -> void:
 	if anim_name == "dead":
-		var _reaload: bool = get_tree().reaload_current_scene()
+		var _reaload: bool = get_tree().reload_current_scene()
+		is_dead = false
+		_physics_process(true)
 		
 	if anim_name == "appear":
 		can_animate = true
 		can_move = true
 		animation.play("idle")
 
-
-
 func animate():
-	if not can_animate:
+	if not can_animate or is_dead:
 		return
 
 	if move_dir != Vector2.ZERO:
@@ -151,18 +145,9 @@ func follow_camera(camera):
 	var camera_path = camera.get_path()
 	$remote_transform.remote_path = camera_path
 
-
-
 func _on_timer_timeout() -> void:
 	get_tree().reload_current_scene()
 	
-
-
-
-func kill() -> void:
-	can_die = true
-
-
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.has_method("interact"):
@@ -172,7 +157,6 @@ func _on_area_entered(area: Area2D) -> void:
 func _on_area_exited(area: Area2D) -> void:
 	if area == nearby_interactable:
 		nearby_interactable = null
-
 
 func take_damage(amount):
 	health -= amount

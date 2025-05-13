@@ -1,8 +1,8 @@
-[gd_scene load_steps=20 format=3 uid="uid://dn0eyj2v6sa4x"]
+[gd_scene load_steps=17 format=3 uid="uid://dn0eyj2v6sa4x"]
 
 [ext_resource type="Script" uid="uid://c7aasiwf0mt8" path="res://script/player/character.gd" id="1_3x35j"]
 [ext_resource type="Texture2D" uid="uid://drc13fkawykk" path="res://sprites/character/Skeleton.png" id="2_t17xi"]
-[ext_resource type="Texture2D" uid="uid://cvlxusskytnec" path="res://sprites/resources/light.png" id="3_d7vt2"]
+[ext_resource type="PackedScene" uid="uid://m4jj51xu03su" path="res://scene/ScreenResource/light.tscn" id="3_6k5wm"]
 [ext_resource type="Script" uid="uid://de5wgcsdbomg5" path="res://script/player/player_stats.gd" id="4_6k5wm"]
 
 [sub_resource type="Animation" id="Animation_mbevu"]
@@ -205,73 +205,10 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k8rrn"]
 size = Vector2(28, 28)
 
-[sub_resource type="Animation" id="Animation_7v2w7"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:texture_scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.3]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:energy")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.8]
-}
-
-[sub_resource type="Animation" id="Animation_6k5wm"]
-resource_name = "light_animation"
-length = 10.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:texture_scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.3, 0.25]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:energy")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.8, 0.6]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_p3t0x"]
-_data = {
-&"RESET": SubResource("Animation_7v2w7"),
-&"light_animation": SubResource("Animation_6k5wm")
-}
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6k5wm"]
 size = Vector2(28, 28)
 
 [node name="character" type="CharacterBody2D" groups=["character"]]
-position = Vector2(500, 500)
 collision_mask = 15
 script = ExtResource("1_3x35j")
 move_speed = 200
@@ -292,18 +229,7 @@ speed_scale = 0.5
 [node name="collision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_k8rrn")
 
-[node name="Light" type="PointLight2D" parent="."]
-visible = false
-color = Color(1, 1, 2, 1)
-energy = 0.8
-texture = ExtResource("3_d7vt2")
-texture_scale = 0.3
-
-[node name="Animation" type="AnimationPlayer" parent="Light"]
-libraries = {
-&"": SubResource("AnimationLibrary_p3t0x")
-}
-autoplay = "light_animation"
+[node name="Light" parent="." instance=ExtResource("3_6k5wm")]
 
 [node name="remote_transform" type="RemoteTransform2D" parent="."]
 

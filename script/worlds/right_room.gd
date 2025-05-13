@@ -1,5 +1,5 @@
 extends Node2D
-class_name world
+class_name RightRoom
 
 @onready var player: CharacterBody2D = $character
 @onready var camera: Camera2D = $camera
@@ -10,6 +10,7 @@ var camZoom: int
 @export var _hud: CanvasLayer = null
 
 func _ready() -> void:
+	Transition.fade_out()
 	zoom()
 	player.follow_camera(camera)
 		
@@ -18,4 +19,3 @@ func zoom():
 	camera.zoom.y = 1.5
 	camZoom = camera.zoom.x && camera.zoom.y
 	pass
-	

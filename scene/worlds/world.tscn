@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://66ybbo3ypuj"]
+[gd_scene load_steps=30 format=3 uid="uid://66ybbo3ypuj"]
 
 [ext_resource type="Script" uid="uid://vrktdgtif4of" path="res://script/worlds/world.gd" id="1_qn1ml"]
 [ext_resource type="Texture2D" uid="uid://bgcun73qbmpk5" path="res://sprites/hold/chao.jpg" id="2_4utwg"]
@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://hdui7gwjc7cl" path="res://sprites/hold/Pilastra.png" id="5_6n167"]
 [ext_resource type="PackedScene" uid="uid://cxdud0qyq72aq" path="res://scene/mask.tscn" id="6_4a81e"]
 [ext_resource type="Texture2D" uid="uid://qmkgjxt6ecoc" path="res://sprites/hold/Cofre.png" id="6_lvmtb"]
-[ext_resource type="Texture2D" uid="uid://c7kqmhg6vl7r8" path="res://sprites/hold/bau aberto.png" id="6_u04ql"]
 [ext_resource type="Texture2D" uid="uid://b2fu4im6xum4c" path="res://sprites/hold/CaixaDeMadeira.png" id="7_4a81e"]
 [ext_resource type="Texture2D" uid="uid://bwanvi5jemcgo" path="res://sprites/hold/Pedestal.png" id="8_gatqw"]
 [ext_resource type="Texture2D" uid="uid://brbffspv1bwfq" path="res://sprites/hold/veigarmeu.png" id="9_8dy1s"]
@@ -80,7 +79,6 @@ texture = ExtResource("5_6n167")
 2:3/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iwpwe"]
-texture = ExtResource("6_u04ql")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -183,7 +181,6 @@ _hud = NodePath("HUD")
 [node name="Cofre" parent="." instance=ExtResource("17_yn3w0")]
 z_index = 1
 position = Vector2(897, 0)
-collision_layer = 2
 
 [node name="tilemap" type="TileMap" parent="."]
 texture_filter = 1
@@ -232,9 +229,8 @@ collision_layer = 2
 [node name="camera" type="Camera2D" parent="."]
 
 [node name="Chest" parent="." instance=ExtResource("14_vfwu8")]
-position = Vector2(750, 0)
-collision_layer = 2
-collision_mask = 1
+position = Vector2(753, 6)
+scale = Vector2(1.5, 1.5)
 
 [node name="Trap" parent="." instance=ExtResource("16_iwpwe")]
 position = Vector2(497, 496)

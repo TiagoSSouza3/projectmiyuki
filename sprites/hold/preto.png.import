@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bexam17hupgwj"
-path="res://.godot/imported/bau fechado.png-cbed195e590621fffca5d7742c6e77aa.ctex"
+uid="uid://croijnbfr5ahf"
+path="res://.godot/imported/preto.png-b76ed08f00c54dbc4a8f98b2cacf9d04.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/hold/bau fechado.png"
-dest_files=["res://.godot/imported/bau fechado.png-cbed195e590621fffca5d7742c6e77aa.ctex"]
+source_file="res://sprites/hold/preto.png"
+dest_files=["res://.godot/imported/preto.png-b76ed08f00c54dbc4a8f98b2cacf9d04.ctex"]
 
 [params]
 

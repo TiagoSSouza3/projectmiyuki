@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://baagsor84nwno"]
 
-[ext_resource type="Script" uid="uid://b7cxcbjt58ysg" path="res://script/interact/button.gd" id="1_3s2pd"]
+[ext_resource type="Script" uid="uid://b7cxcbjt58ysg" path="res://script/interact/button/button.gd" id="1_3s2pd"]
 [ext_resource type="Texture2D" uid="uid://cdni70eccc4ne" path="res://sprites/resources/tile/0x72_DungeonTilesetII_v1.7/atlas_floor-16x16.png" id="2_old4x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ut20d"]
