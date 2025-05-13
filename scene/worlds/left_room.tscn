@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://be0vtsd747dcv"]
+[gd_scene load_steps=36 format=3 uid="uid://be0vtsd747dcv"]
 
 [ext_resource type="Script" uid="uid://bs7xjsa5alrul" path="res://script/worlds/world_fadeout.gd" id="1_mn0jy"]
 [ext_resource type="Texture2D" uid="uid://dsus53yhewsw4" path="res://sprites/resources/tile/DampDungeons/Tiles/DungeonDecorations.png" id="2_i6fm0"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://31mwrq2m7sh8" path="res://scene/ScreenResource/key/key.tscn" id="17_su172"]
 [ext_resource type="PackedScene" uid="uid://mv8dnxjqwumb" path="res://scene/interact/Chest.tscn" id="18_i6fm0"]
 [ext_resource type="PackedScene" uid="uid://clb7cien3nvwy" path="res://scene/interact/lever.tscn" id="19_dl8lu"]
+[ext_resource type="Script" uid="uid://d1a31d15yau5g" path="res://script/interact/levers.gd" id="20_1ck8a"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x0ka3"]
 texture = ExtResource("2_i6fm0")
@@ -2194,31 +2195,40 @@ position = Vector2(163, 64)
 script = ExtResource("17_6p37t")
 scene_path = "res://scene/worlds/lobby.tscn"
 
-[node name="Lever1" parent="." groups=["levers"] instance=ExtResource("19_dl8lu")]
+[node name="Levers" type="Node2D" parent="." node_paths=PackedStringArray("lever1", "lever2", "lever3", "lever4", "lever5", "lever6")]
+script = ExtResource("20_1ck8a")
+lever1 = NodePath("Lever1")
+lever2 = NodePath("Lever2")
+lever3 = NodePath("Lever3")
+lever4 = NodePath("Lever4")
+lever5 = NodePath("Lever5")
+lever6 = NodePath("Lever6")
+
+[node name="Lever1" parent="Levers" groups=["levers"] instance=ExtResource("19_dl8lu")]
 z_index = 1
 position = Vector2(40, -1)
 
-[node name="Lever2" parent="." groups=["levers"] instance=ExtResource("19_dl8lu")]
+[node name="Lever2" parent="Levers" groups=["levers"] instance=ExtResource("19_dl8lu")]
 z_index = 1
 position = Vector2(40, 31)
 lever_id = 2
 
-[node name="Lever3" parent="." groups=["levers"] instance=ExtResource("19_dl8lu")]
+[node name="Lever3" parent="Levers" groups=["levers"] instance=ExtResource("19_dl8lu")]
 z_index = 1
 position = Vector2(40, 63)
 lever_id = 3
 
-[node name="Lever4" parent="." groups=["levers"] instance=ExtResource("19_dl8lu")]
+[node name="Lever4" parent="Levers" groups=["levers"] instance=ExtResource("19_dl8lu")]
 z_index = 1
 position = Vector2(120, -1)
 lever_id = 4
 
-[node name="Lever5" parent="." groups=["levers"] instance=ExtResource("19_dl8lu")]
+[node name="Lever5" parent="Levers" groups=["levers"] instance=ExtResource("19_dl8lu")]
 z_index = 1
 position = Vector2(120, 31)
 lever_id = 5
 
-[node name="Lever6" parent="." groups=["levers"] instance=ExtResource("19_dl8lu")]
+[node name="Lever6" parent="Levers" groups=["levers"] instance=ExtResource("19_dl8lu")]
 z_index = 1
 position = Vector2(120, 63)
 lever_id = 6
