@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://mv8dnxjqwumb"]
+[gd_scene load_steps=8 format=3 uid="uid://mv8dnxjqwumb"]
 
 [ext_resource type="Script" uid="uid://6iq6xmg7aom8" path="res://script/interact/Chest.gd" id="1_sw123"]
 [ext_resource type="Texture2D" uid="uid://cu0kraw1yqg2b" path="res://sprites/hold/RPG Chests.png" id="4_34xpo"]
@@ -43,6 +43,9 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sw123"]
 size = Vector2(18, 16)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n0daf"]
+size = Vector2(34, 50)
+
 [node name="Chest" type="Area2D"]
 collision_layer = 4
 script = ExtResource("1_sw123")
@@ -64,4 +67,12 @@ libraries = {
 position = Vector2(0, 7)
 shape = SubResource("RectangleShape2D_sw123")
 
+[node name="AreaDetec" type="Area2D" parent="."]
+position = Vector2(0, 7)
+collision_layer = 2
+
+[node name="CollisionDetec" type="CollisionShape2D" parent="AreaDetec"]
+shape = SubResource("RectangleShape2D_n0daf")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="animation_finished" from="Texture/Animation" to="." method="_on_animation_finished"]

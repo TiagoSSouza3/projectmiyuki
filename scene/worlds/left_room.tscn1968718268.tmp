@@ -2173,7 +2173,7 @@ layer_3/tile_data = PackedInt32Array(-1048598, 589829, 5, -983062, 589829, 5, -9
 
 [node name="character" parent="." instance=ExtResource("15_2le7s")]
 z_index = 1
-position = Vector2(152, 72)
+position = Vector2(72, 56)
 scale = Vector2(0.5, 0.5)
 
 [node name="camera" type="Camera2D" parent="."]
@@ -2185,21 +2185,6 @@ z_index = 1
 position = Vector2(80, -16)
 
 [node name="Key" parent="Chest" instance=ExtResource("17_su172")]
-visible = false
-
-[node name="Chest2" parent="." instance=ExtResource("18_i6fm0")]
-z_index = 1
-position = Vector2(149.5, 0.5)
-
-[node name="Key" parent="Chest2" instance=ExtResource("17_su172")]
-visible = false
-
-[node name="Chest3" parent="." instance=ExtResource("18_i6fm0")]
-z_index = 1
-position = Vector2(14, 23)
-
-[node name="Key" parent="Chest3" instance=ExtResource("17_su172")]
-visible = false
 
 [node name="DoorSideRight" parent="." instance=ExtResource("16_v44oy")]
 z_index = 1

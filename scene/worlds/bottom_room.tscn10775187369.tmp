@@ -2230,7 +2230,6 @@ anchors_preset = 8
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-correct_password = "268"
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 layer = 2

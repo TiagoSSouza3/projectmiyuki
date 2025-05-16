@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 SignalManager="*res://script/worlds/signal_manager.gd"
 Transition="*res://scene/ScreenResource/transition.tscn"
+GameState="*res://game_state.gd"
 
 [input]
 

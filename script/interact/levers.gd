@@ -40,6 +40,16 @@ func toggle(lever):
 			if linked_lever and linked_lever != self:
 				linked_lever.is_on = !linked_lever.is_on
 				update_visual(linked_lever)
+				
+	check_all_levers_on()
+	
+
+func check_all_levers_on():
+	for lever in [lever1, lever2, lever3, lever4, lever5, lever6]:
+		if not lever.is_on:
+			return
+	
+	SignalManager.lever_is_pressed.emit()
 
 func find_lever_by_id(id: int) -> Node:
 	var levers = get_tree().get_nodes_in_group("levers")

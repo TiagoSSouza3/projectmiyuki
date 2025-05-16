@@ -12,6 +12,7 @@ const TILE_SIZE = 32
 @onready var collision: CollisionShape2D = $collision
 
 
+var key_count: int = 0
 var health : int = 3
 var can_die : bool = false
 var can_track: bool = true
@@ -140,6 +141,10 @@ func animate():
 		if animation.current_animation != "idle":
 			animation.play("idle")
 
+
+func collect_key():
+	GameState.key_count += 1
+	emit_signal("key_collected")
 
 func follow_camera(camera):
 	var camera_path = camera.get_path()

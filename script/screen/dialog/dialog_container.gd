@@ -1,50 +1,21 @@
 extends Control
 
-signal finished
+signal dialogue_finished
 
-@onready var portrait: TextureRect = $Background/Portrait
-@onready var text: RichTextLabel = $Background/Text
-@onready var animation: AnimationPlayer = $Animation
-@onready var timer: Timer = $Timer
+@onready var Text = $Background/Text
+@onready var bg = $Background
 
-@export var wait_timer: float = 0.02
+var is_showing = false
 
-var can_skip_dialog: bool = false
-var dialog_size: int
-var dialog_index: int = 0
-var dialog_list: Dictionary = {
-	"dialog": [
-		"Olá querido esqueleto",
-		"abacatudo"
-	],
-	"portrait": null
-}
+func show_text(text: String):
+	visible = true
+	$Background.visible = true
+	$Background/Text.visible = true
+	Text.text = text
+	is_showing = true
 
-func _ready() -> void:
-	$Animation.play("fade_in")
-	show_dialog()
-	dialog_size = dialog_list["dialog"].size()
-	
-func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("interact") and can_skip_dialog:
-		can_skip_dialog = false
-		show_dialog()
-	
-func show_dialog() -> void:
-	if dialog_index == dialog_size:
-		$Animation.play("fade_out")
-		await $Animation.animation_finished
-		emit_signal("finished")
-		queue_free()
-		return
-		
-	text.visible = 0
-	text.text = dialog_list["dialog"][dialog_index]
-	dialog_index += 1
-	
-	while text.visible_characters < len(text.text):
-		text.visible_characters += 1
-		timer.start(wait_timer)
-		await get_tree().create_timer(0.02).timeout
-		
-	can_skip_dialog = true
+func _unhandled_input(event):
+	if is_showing and event.is_action_pressed("ui_cancel"):
+		is_showing = false
+		visible = false
+		emit_signal("dialogue_finished")

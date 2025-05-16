@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://b32isn1y2bnjq"]
+
+[ext_resource type="Texture2D" uid="uid://e2mq2mqpoeei" path="res://sprites/hold/pilar quebrado.png" id="1_bp7gi"]
+[ext_resource type="Script" uid="uid://biyj4lbpndsoh" path="res://script/interact/pilar.gd" id="1_cr35o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cr35o"]
+size = Vector2(92, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2tmsu"]
+size = Vector2(128, 61)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cr35o"]
+radius = 137.015
+
+[node name="Pilar" type="Area2D"]
+collision_layer = 4
+script = ExtResource("1_cr35o")
+
+[node name="Texture" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_bp7gi")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 64)
+shape = SubResource("RectangleShape2D_cr35o")
+
+[node name="Area" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="Collision" type="CollisionShape2D" parent="Area"]
+position = Vector2(-1, 118.5)
+shape = SubResource("RectangleShape2D_2tmsu")
+
+[node name="InteractionArea" type="Area2D" parent="."]
+z_index = 2
+collision_layer = 2
+
+[node name="Collision" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("CircleShape2D_cr35o")
+
+[node name="InteractionLabel" type="Label" parent="."]
+offset_left = -53.0
+offset_top = 71.0
+offset_right = 56.0
+offset_bottom = 94.0
+text = "Press \"E\" here"
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="Area" to="." method="_on_body_entered"]
+[connection signal="body_exited" from="Area" to="." method="_on_body_exited"]
