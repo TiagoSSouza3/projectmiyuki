@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var player: CharacterBody2D = $character
 @onready var camera: Camera2D = $camera
+@onready var label: Label = $Label
 
 var camZoom: int
 
@@ -9,9 +10,9 @@ var camZoom: int
 @export var _hud: CanvasLayer = null
 
 func _ready() -> void:
-	Transition.fade_out()
 	zoom()
-	player.follow_camera(camera)
+	label.visible = true
+	Transition.fade_out()
 	
 	var character = get_node("character")
 	var spawn_points = get_node("SpawnPoints")
@@ -22,7 +23,7 @@ func _ready() -> void:
 		
 
 func zoom():
-	camera.zoom.x = 1.5
-	camera.zoom.y = 1.5
+	camera.zoom.x = 1
+	camera.zoom.y = 1
 	camZoom = camera.zoom.x && camera.zoom.y
 	pass

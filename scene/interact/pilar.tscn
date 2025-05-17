@@ -38,14 +38,17 @@ collision_layer = 2
 [node name="Collision" type="CollisionShape2D" parent="InteractionArea"]
 shape = SubResource("CircleShape2D_cr35o")
 
+[node name="Timer" type="Timer" parent="."]
+
 [node name="InteractionLabel" type="Label" parent="."]
+visible = false
 offset_left = -53.0
 offset_top = 71.0
 offset_right = 56.0
 offset_bottom = 94.0
 text = "Press \"E\" here"
 
-[node name="Timer" type="Timer" parent="."]
-
 [connection signal="body_entered" from="Area" to="." method="_on_body_entered"]
 [connection signal="body_exited" from="Area" to="." method="_on_body_exited"]
+[connection signal="body_entered" from="InteractionArea" to="." method="_on_body_entered"]
+[connection signal="body_exited" from="InteractionArea" to="." method="_on_body_exited"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://0llbqnpl478o"]
+[gd_scene load_steps=37 format=3 uid="uid://0llbqnpl478o"]
 
 [ext_resource type="Script" uid="uid://cfgx00uh5k3hh" path="res://script/worlds/right_room.gd" id="1_pupri"]
 [ext_resource type="Texture2D" uid="uid://cvuufgpkuetcy" path="res://sprites/resources/tile/Dungeon_Tileset.png" id="2_5ktpy"]
@@ -20,7 +20,6 @@
 [ext_resource type="Script" uid="uid://dvdxb123cwkfj" path="res://script/interact/button/button_multi.gd" id="16_elllc"]
 [ext_resource type="PackedScene" uid="uid://dg266lb00jj8u" path="res://scene/interact/doorspath/doorside.tscn" id="17_h8wdm"]
 [ext_resource type="Script" uid="uid://dj8sfl0cga4ac" path="res://script/screen/transition_scene.gd" id="19_oownd"]
-[ext_resource type="PackedScene" uid="uid://jff67yafo8pd" path="res://scene/interact/doorfronttutorial.tscn" id="21_r3yq2"]
 [ext_resource type="PackedScene" uid="uid://31mwrq2m7sh8" path="res://scene/ScreenResource/key/key.tscn" id="22_ihf1w"]
 [ext_resource type="PackedScene" uid="uid://mv8dnxjqwumb" path="res://scene/interact/Chest.tscn" id="22_kb618"]
 
@@ -2375,6 +2374,3 @@ position = Vector2(18, -111.5)
 
 [node name="Key" parent="Chest" instance=ExtResource("22_ihf1w")]
 visible = false
-
-[node name="DoorFrontli" parent="." instance=ExtResource("21_r3yq2")]
-position = Vector2(17.5, -88)

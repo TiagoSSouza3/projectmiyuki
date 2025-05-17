@@ -31,7 +31,6 @@ var can_move: bool = false
 
 func _ready() -> void:
 	add_to_group("character")
-	$DetectionArea.add_to_group("activator")
 	$animation.play("appear")
 
 func _process(_delta: float) -> void:

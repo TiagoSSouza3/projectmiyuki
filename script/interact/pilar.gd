@@ -30,6 +30,7 @@ func _process(_delta):
 			get_tree().paused = true
 			
 		elif state == 1 and password_display and not ui_instance:
+			password_display.visible = true
 			var canvas_layer = get_node(canvas_layer_path)
 			ui_instance = password_display.instantiate()
 			ui_instance.connect("password_closed", Callable(self, "_on_password_closed"))

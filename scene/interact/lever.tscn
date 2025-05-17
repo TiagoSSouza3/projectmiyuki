@@ -7,6 +7,7 @@
 size = Vector2(16, 9)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oeohr"]
+size = Vector2(20, 15)
 
 [sub_resource type="Animation" id="Animation_oeohr"]
 length = 0.001
@@ -83,13 +84,22 @@ shape = SubResource("RectangleShape2D_2nun3")
 collision_layer = 2
 
 [node name="Collision" type="CollisionShape2D" parent="AreaActivator"]
-position = Vector2(0, 6)
+position = Vector2(0, 9.5)
 shape = SubResource("RectangleShape2D_oeohr")
 
 [node name="Animation" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_wqqaw")
 }
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = -10.0
+offset_top = -11.0
+offset_right = 59.0
+offset_bottom = 12.0
+scale = Vector2(0.3, 0.3)
+text = "Press \"E\""
 
 [connection signal="body_entered" from="AreaActivator" to="." method="_on_body_entered"]
 [connection signal="body_exited" from="AreaActivator" to="." method="_on_body_exited"]

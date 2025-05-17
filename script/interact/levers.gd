@@ -46,7 +46,7 @@ func toggle(lever):
 
 func check_all_levers_on():
 	for lever in [lever1, lever2, lever3, lever4, lever5, lever6]:
-		if not lever.is_on:
+		if lever.is_on:
 			return
 	
 	SignalManager.lever_is_pressed.emit()

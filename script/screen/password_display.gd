@@ -3,7 +3,7 @@ class_name PasswordDisplay
 
 signal password_closed
 
-@export var correct_password: String = ""
+@export var correct_password: String = "667"
 var current_input := ""
 
 @onready var display = $Panel/Display

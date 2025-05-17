@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://druhinnettmvi"]
+[gd_scene load_steps=4 format=3 uid="uid://druhinnettmvi"]
 
 [ext_resource type="Texture2D" uid="uid://croijnbfr5ahf" path="res://sprites/hold/preto.png" id="1_rode3"]
 [ext_resource type="Script" uid="uid://blw6fh6jq0hid" path="res://script/screen/dialog/dialog_container.gd" id="1_w4ulp"]
-[ext_resource type="Texture2D" uid="uid://dcmcw4nn41bqa" path="res://sprites/resources/tile/2D Pixel Dungeon Asset Pack/Character_animation/monsters_idle/skull/v2/skull_v2_1.png" id="2_w4ulp"]
 
 [sub_resource type="Theme" id="Theme_0rc3c"]
 
@@ -32,33 +31,6 @@ grow_horizontal = 2
 grow_vertical = 0
 theme = SubResource("Theme_0rc3c")
 texture = ExtResource("1_rode3")
-
-[node name="Label" type="Label" parent="Background"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -37.0
-offset_top = -23.0
-grow_horizontal = 0
-grow_vertical = 0
-text = "Esc ↓"
-
-[node name="Portrait" type="TextureRect" parent="Background"]
-visible = false
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 5.0
-offset_top = -20.0
-offset_right = 45.0
-offset_bottom = 20.0
-grow_vertical = 2
-texture = ExtResource("2_w4ulp")
 
 [node name="Text" type="RichTextLabel" parent="Background"]
 layout_mode = 1

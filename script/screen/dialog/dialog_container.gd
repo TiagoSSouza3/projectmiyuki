@@ -12,10 +12,12 @@ func show_text(text: String):
 	$Background.visible = true
 	$Background/Text.visible = true
 	Text.text = text
+	GameState.dialogue_active = true
 	is_showing = true
 
 func _unhandled_input(event):
 	if is_showing and event.is_action_pressed("ui_cancel"):
 		is_showing = false
 		visible = false
+		GameState.dialogue_active = false
 		emit_signal("dialogue_finished")
