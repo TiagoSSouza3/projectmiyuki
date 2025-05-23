@@ -7,13 +7,13 @@
 size = Vector2(14, 14)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7cfpg"]
-size = Vector2(8, 14)
+size = Vector2(8, 3)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8hx78"]
-size = Vector2(8, 14)
+size = Vector2(8, 3)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_16a8o"]
-size = Vector2(14, 8)
+size = Vector2(4, 8)
 
 [node name="Box" type="Node2D"]
 script = ExtResource("1_uymod")
@@ -35,14 +35,14 @@ shape = SubResource("RectangleShape2D_0e3c1")
 collision_layer = 0
 
 [node name="BoxCollision" type="CollisionShape2D" parent="Left"]
-position = Vector2(-11, 0)
+position = Vector2(-11, 0.5)
 shape = SubResource("RectangleShape2D_7cfpg")
 
 [node name="Right" type="Area2D" parent="."]
 collision_layer = 0
 
 [node name="BoxCollision" type="CollisionShape2D" parent="Right"]
-position = Vector2(11, 0)
+position = Vector2(11, 0.5)
 shape = SubResource("RectangleShape2D_8hx78")
 
 [node name="Up" type="Area2D" parent="."]

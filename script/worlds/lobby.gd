@@ -13,14 +13,14 @@ func _ready() -> void:
 	zoom()
 	label.visible = true
 	Transition.fade_out()
-	
+
 	var character = get_node("character")
 	var spawn_points = get_node("SpawnPoints")
 
-	if GameState.next_spawn_point != "" and spawn_points.has_node(GameState.next_spawn_point):
-		var target_position = spawn_points.get_node(GameState.next_spawn_point).global_position
+	if GameState.next_spawn_point_door != "" and spawn_points.has_node(GameState.next_spawn_point_door):
+		var target_position = spawn_points.get_node(GameState.next_spawn_point_door).get_node(GameState.next_spawn_point).global_position
 		player.global_position = target_position
-		
+
 
 func zoom():
 	camera.zoom.x = 1

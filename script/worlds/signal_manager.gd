@@ -1,9 +1,0 @@
-extends Node
-
-signal open_door_tutorial
-signal close_door_tutorial
-signal all_buttons_pressed
-signal not_all_buttons_pressed
-signal lever_is_pressed
-signal open_safe
-signal key_collected

@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://brv2rc2yg8fij"]
+
+[ext_resource type="Script" uid="uid://r4ppqu72ca8r" path="res://script/NPC/npc_last.gd" id="1_m2k1x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gwtn0"]
+size = Vector2(53, 53)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4aqh0"]
+size = Vector2(26, 42.875)
+
+[node name="NpcLast" type="Node2D"]
+script = ExtResource("1_m2k1x")
+
+[node name="InteractionLabel" type="Label" parent="."]
+z_index = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -46.0
+offset_right = 37.0
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "press \"E\""
+
+[node name="InteractionArea" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="collision" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(0.5, 3.5)
+shape = SubResource("RectangleShape2D_gwtn0")
+
+[node name="Area" type="Area2D" parent="."]
+collision_layer = 4
+
+[node name="Collision" type="CollisionShape2D" parent="Area"]
+position = Vector2(0, 4.4375)
+shape = SubResource("RectangleShape2D_4aqh0")
+
+[connection signal="body_entered" from="InteractionArea" to="." method="_on_body_entered"]
+[connection signal="body_exited" from="InteractionArea" to="." method="_on_body_exited"]

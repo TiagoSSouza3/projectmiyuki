@@ -8,23 +8,16 @@ const TILE_SIZE = 32
 @onready var animation: AnimationPlayer = $animation
 @onready var sprite: Sprite2D = $sprite
 @onready var remote_transform: RemoteTransform2D = $remote_transform
-@onready var timer: Timer = $Timer
 @onready var collision: CollisionShape2D = $collision
 
 
 var key_count: int = 0
-var health : int = 3
-var can_die : bool = false
-var can_track: bool = true
 var is_dead: bool = false
-var dead: bool = false
-var on_hit: bool = false
 var nearby_interactable = null
 var move_dir = Vector2.ZERO
 var moving = false
 var move_target = Vector2.ZERO
 var last_dir := Vector2.DOWN
-var camZoom = Vector2.ZERO
 var can_animate: bool = false
 var can_move: bool = false
 
@@ -46,7 +39,7 @@ func _process(_delta: float) -> void:
 		if nearby_interactable.has_method("interact"):
 			nearby_interactable.interact()
 	
-		
+
 func _physics_process(delta: float) -> void:
 	animate()
 	
@@ -143,15 +136,12 @@ func animate():
 
 func collect_key():
 	GameState.key_count += 1
-	emit_signal("key_collected")
+	SignalManager.key_collected.emit()
 
 func follow_camera(camera):
 	var camera_path = camera.get_path()
 	$remote_transform.remote_path = camera_path
 
-func _on_timer_timeout() -> void:
-	get_tree().reload_current_scene()
-	
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.has_method("interact"):
@@ -161,12 +151,3 @@ func _on_area_entered(area: Area2D) -> void:
 func _on_area_exited(area: Area2D) -> void:
 	if area == nearby_interactable:
 		nearby_interactable = null
-
-func take_damage(amount):
-	health -= amount
-	print("Tomei dano! Vida atual:", health)
-	animation.play("hurt")
-	
-	if health <= 0:
-		queue_free()
-	

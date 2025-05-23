@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://cbh8wg7qaia2o" path="res://sprites/resources/tile/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7.png" id="13_vclp7"]
 [ext_resource type="Texture2D" uid="uid://vco4c4ruc5qy" path="res://sprites/resources/tile/DampDungeons/Animations/Dungeon_ObjectBigdoor.png" id="14_houhl"]
 [ext_resource type="PackedScene" uid="uid://dn0eyj2v6sa4x" path="res://scene/character.tscn" id="15_2le7s"]
-[ext_resource type="PackedScene" uid="uid://dg266lb00jj8u" path="res://scene/interact/doorspath/doorside.tscn" id="16_v44oy"]
+[ext_resource type="PackedScene" uid="uid://dg266lb00jj8u" path="res://scene/interact/path/doorside.tscn" id="16_v44oy"]
 [ext_resource type="Script" uid="uid://dj8sfl0cga4ac" path="res://script/screen/transition_scene.gd" id="17_6p37t"]
 [ext_resource type="PackedScene" uid="uid://31mwrq2m7sh8" path="res://scene/ScreenResource/key/key.tscn" id="17_su172"]
 [ext_resource type="PackedScene" uid="uid://mv8dnxjqwumb" path="res://scene/interact/Chest.tscn" id="18_i6fm0"]
@@ -2175,9 +2175,9 @@ layer_3/tile_data = PackedInt32Array(-1048598, 589829, 5, -983062, 589829, 5, -9
 [node name="Label" type="Label" parent="."]
 z_index = 2
 offset_left = 215.5
-offset_top = 145.0
+offset_top = 161.0
 offset_right = 320.5
-offset_bottom = 168.0
+offset_bottom = 184.0
 scale = Vector2(0.5, 0.5)
 text = "\"R\" to Restart"
 
@@ -2187,7 +2187,7 @@ position = Vector2(152, 72)
 scale = Vector2(0.5, 0.5)
 
 [node name="camera" type="Camera2D" parent="."]
-position = Vector2(80, 48)
+position = Vector2(80, 65)
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
@@ -2206,6 +2206,8 @@ position = Vector2(163, 64)
 [node name="TransitionScene" type="Node" parent="DoorSideRight"]
 script = ExtResource("17_6p37t")
 scene_path = "res://scene/worlds/lobby.tscn"
+next_spawn_door = "DoorSideLeft"
+next_spawn = "SpawnPointLeft"
 
 [node name="Levers" type="Node2D" parent="." node_paths=PackedStringArray("lever1", "lever2", "lever3", "lever4", "lever5", "lever6")]
 script = ExtResource("20_1ck8a")

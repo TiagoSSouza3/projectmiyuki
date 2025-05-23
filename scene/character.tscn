@@ -1,9 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://dn0eyj2v6sa4x"]
+[gd_scene load_steps=16 format=3 uid="uid://dn0eyj2v6sa4x"]
 
 [ext_resource type="Script" uid="uid://c7aasiwf0mt8" path="res://script/player/character.gd" id="1_3x35j"]
 [ext_resource type="Texture2D" uid="uid://drc13fkawykk" path="res://sprites/character/Skeleton.png" id="2_t17xi"]
 [ext_resource type="PackedScene" uid="uid://m4jj51xu03su" path="res://scene/ScreenResource/light.tscn" id="3_6k5wm"]
-[ext_resource type="Script" uid="uid://de5wgcsdbomg5" path="res://script/player/player_stats.gd" id="4_6k5wm"]
 
 [sub_resource type="Animation" id="Animation_mbevu"]
 length = 0.001
@@ -233,13 +232,6 @@ shape = SubResource("RectangleShape2D_k8rrn")
 
 [node name="remote_transform" type="RemoteTransform2D" parent="."]
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 3.0
-one_shot = true
-
-[node name="Stats" type="Node" parent="."]
-script = ExtResource("4_6k5wm")
-
 [node name="DetectionArea" type="Area2D" parent="."]
 collision_mask = 4
 
@@ -247,6 +239,5 @@ collision_mask = 4
 shape = SubResource("RectangleShape2D_6k5wm")
 
 [connection signal="animation_finished" from="animation" to="." method="_on_animation_finished"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="DetectionArea" to="." method="_on_area_entered"]
 [connection signal="area_exited" from="DetectionArea" to="." method="_on_area_exited"]

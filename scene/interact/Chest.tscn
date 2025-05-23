@@ -44,7 +44,7 @@ _data = {
 size = Vector2(18, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n0daf"]
-size = Vector2(34, 50)
+size = Vector2(32, 50)
 
 [node name="Chest" type="Area2D"]
 collision_layer = 4
@@ -74,5 +74,5 @@ collision_layer = 2
 [node name="CollisionDetec" type="CollisionShape2D" parent="AreaDetec"]
 shape = SubResource("RectangleShape2D_n0daf")
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="animation_finished" from="Texture/Animation" to="." method="_on_animation_finished"]
+[connection signal="area_shape_entered" from="AreaDetec" to="." method="_on_area_entered"]

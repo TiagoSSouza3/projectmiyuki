@@ -1,8 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://ctxhavhc6qenr"]
+[gd_scene load_steps=6 format=3 uid="uid://ctxhavhc6qenr"]
 
 [ext_resource type="Script" uid="uid://c7ynanr4255pe" path="res://script/NPC/npc.gd" id="1_pc2mi"]
 [ext_resource type="Texture2D" uid="uid://drc13fkawykk" path="res://sprites/character/Skeleton.png" id="2_yw8wn"]
-[ext_resource type="PackedScene" uid="uid://bo2b6qvrvtj6f" path="res://scene/ScreenResource/dialog_screen.tscn" id="3_yw8wn"]
+[ext_resource type="PackedScene" uid="uid://bo2b6qvrvtj6f" path="res://scene/ScreenResource/dialog/dialog_screen.tscn" id="3_yw8wn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yw8wn"]
+size = Vector2(11, 14)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pc2mi"]
 radius = 35.0143
@@ -17,6 +20,13 @@ flip_h = true
 hframes = 4
 vframes = 12
 frame = 4
+
+[node name="Area" type="Area2D" parent="."]
+collision_layer = 4
+
+[node name="Collision" type="CollisionShape2D" parent="Area"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_yw8wn")
 
 [node name="InteractionArea" type="Area2D" parent="."]
 collision_layer = 2
@@ -49,6 +59,7 @@ offset_top = -20.0
 offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.5, 1.5)
 
 [connection signal="body_entered" from="InteractionArea" to="." method="_on_body_entered"]
 [connection signal="body_exited" from="InteractionArea" to="." method="_on_body_exited"]

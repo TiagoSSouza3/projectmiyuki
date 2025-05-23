@@ -7,6 +7,10 @@ signal dialogue_finished
 
 var is_showing = false
 
+func _ready() -> void:
+	set_process_unhandled_input(true)
+	process_mode = Node2D.PROCESS_MODE_WHEN_PAUSED
+
 func show_text(text: String):
 	visible = true
 	$Background.visible = true

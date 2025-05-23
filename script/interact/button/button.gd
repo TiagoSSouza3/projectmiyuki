@@ -1,5 +1,8 @@
 extends Node2D
 
+signal open_door_tutorial
+signal close_door_tutorial
+
 var active_bodies := 0
 
 func _ready():

@@ -11,13 +11,12 @@ config_version=5
 [application]
 
 config/name="ProjectMiyuki"
-run/main_scene="res://scene/worlds/tutorial.tscn"
+run/main_scene="uid://dvh8vmeho154q"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="res://icon.svg"
 
 [autoload]
 
-SignalManager="*res://script/worlds/signal_manager.gd"
+SignalManager="*res://signal_manager.gd"
 Transition="*res://scene/ScreenResource/transition.tscn"
 GameState="*res://game_state.gd"
 

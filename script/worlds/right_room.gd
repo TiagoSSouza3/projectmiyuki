@@ -12,10 +12,9 @@ var camZoom: int
 func _ready() -> void:
 	Transition.fade_out()
 	zoom()
-	#player.follow_camera(camera)
 		
 func zoom():
-	camera.zoom.x = 1
-	camera.zoom.y = 1
+	camera.zoom.x = 1.4
+	camera.zoom.y = 1.4
 	camZoom = camera.zoom.x && camera.zoom.y
 	pass

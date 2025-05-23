@@ -8,9 +8,10 @@ var player_in_range = false
 var prompt_shown = false
 
 var dialog_lines: Array[String] = [
-	"Olá, querido esqueleto.",
-	"abra a porta para sair
-	daqui."
+	"Finalmente acordou, mais uma
+	cobaia de testes.",
+	"Vá, seja testado, empurre a 
+	caixa até o botão e saia daqui."
 ]
 
 func _ready():

@@ -7,10 +7,8 @@ class_name world
 
 var camZoom: int
 
-@export_category("Objects")
-@export var _hud: CanvasLayer = null
-
 func _ready() -> void:
+	Transition.fade_out()
 	zoom()
 	player.follow_camera(camera)
 	if label.visible:

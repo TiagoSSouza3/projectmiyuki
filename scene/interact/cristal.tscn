@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://pj2rwj6rfog0"]
+
+[ext_resource type="Script" uid="uid://cjkh7yuut4n6o" path="res://script/interact/cristal.gd" id="1_weui1"]
+[ext_resource type="SpriteFrames" uid="uid://dtxtwrg3cathc" path="res://sprites/resources/cristal_frames.tres" id="2_ytcmo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gmssx"]
+size = Vector2(20, 11)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_weui1"]
+radius = 31.0644
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ytcmo"]
+size = Vector2(36, 20)
+
+[node name="Cristal" type="Area2D"]
+collision_layer = 4
+script = ExtResource("1_weui1")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 20.5)
+shape = SubResource("RectangleShape2D_gmssx")
+
+[node name="AreaDetec" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="Collision" type="CollisionShape2D" parent="AreaDetec"]
+position = Vector2(0, 30)
+shape = SubResource("CircleShape2D_weui1")
+
+[node name="AreaInteraction" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="Collision" type="CollisionShape2D" parent="AreaInteraction"]
+position = Vector2(0, 48)
+shape = SubResource("RectangleShape2D_ytcmo")
+
+[node name="IdleSprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("2_ytcmo")
+animation = &"cristal_trans"
+
+[connection signal="body_entered" from="AreaInteraction" to="." method="_on_body_entered"]
+[connection signal="body_exited" from="AreaInteraction" to="." method="_on_body_exited"]
